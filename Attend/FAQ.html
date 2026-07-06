@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ – AWS Student Community Day Thane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#fff;overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh;}
+
+/* ===== NAVBAR ===== */
+header{position:fixed;top:0;left:0;width:100%;z-index:999;background:linear-gradient(90deg,#3E1E5C 0%,#592A83 50%,#7A49A8 100%);backdrop-filter:blur(16px);transition:.35s;}
+.navbar{width:92%;max-width:1400px;margin:auto;height:90px;display:flex;justify-content:space-between;align-items:center;margin-left:70px;}
+.logo img{width:180px;display:block;}
+.nav-links{display:flex;align-items:center;list-style:none;gap:30px;}
+.nav-links li{position:relative;}
+.nav-links li a{color:#fff;text-decoration:none;font-size:17px;font-weight:500;transition:.3s;}
+.nav-links li a:hover{color:#FF9900;}
+.dropdown>a{display:flex;align-items:center;gap:8px;}
+.dropdown-menu{position:absolute;top:55px;left:0;width:290px;background:#fff;border-radius:14px;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(20px);transition:.35s;box-shadow:0 15px 45px rgba(0,0,0,.15);}
+.dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.dropdown-menu li{width:100%;}
+.dropdown-menu li a{display:block;padding:8px 22px;color:#2F3C5A;font-size:15px;transition:.3s;}
+.dropdown-menu li a:hover{background:#FFF4E6;color:#FF9900;padding-left:30px;}
+.register-btn{background:#FF9900;color:#fff;text-decoration:none;padding:10px 30px;border-radius:20px;font-weight:600;transition:.3s;margin-left:120px;white-space:nowrap;}
+.register-btn:hover{background:#E68700;transform:translateY(-2px);}
+.nav-actions{display:flex;align-items:center;gap:16px;}
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;z-index:1001;padding:4px 8px;}
+
+/* ===== PAGE ===== */
+main.page-content{flex:1;background:linear-gradient(160deg,#dfdaff 10%,#F6F2FB 60%,#dfdaff 100%);padding-top:90px;padding-bottom:70px;}
+
+.page-banner{background:linear-gradient(90deg,#3E1E5C 0%,#592A83 50%,#7A49A8 100%);border-radius:28px;margin:40px 240px 0;padding:8px 40px;text-align:center;}
+.page-banner h1{color:#fff;font-size:clamp(1.4rem,3.5vw,2.4rem);font-weight:800;letter-spacing:3px;text-transform:uppercase;line-height:1.15;}
+
+.faq-wrap{width:90%;max-width:900px;margin:44px auto 0;}
+
+/* Category title */
+.faq-category{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#FF9900;margin:32px 0 12px;display:flex;align-items:center;gap:8px;}
+.faq-category:first-child{margin-top:0;}
+.faq-category i{font-size:.9rem;}
+
+/* Accordion */
+.faq-item{background:#fff;border-radius:14px;box-shadow:0 4px 18px rgba(94,42,131,.08);margin-bottom:10px;overflow:hidden;border:1.8px solid #ede8f7;transition:.25s;}
+.faq-item:hover{border-color:#c4b0e8;}
+
+.faq-question{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;cursor:pointer;gap:12px;}
+.faq-question-text{display:flex;align-items:center;gap:12px;font-size:.95rem;font-weight:600;color:#2F1B4E;line-height:1.4;}
+.faq-question-text i{color:#FF9900;font-size:.95rem;flex-shrink:0;width:18px;text-align:center;}
+.faq-chevron{color:#7A49A8;font-size:.85rem;flex-shrink:0;transition:transform .3s;}
+
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease, padding .3s ease;}
+.faq-answer-inner{padding:0 22px 18px;font-size:.9rem;color:#4a4a6a;line-height:1.75;border-top:1px solid #ede8f7;padding-top:14px;}
+
+.faq-item.open .faq-chevron{transform:rotate(180deg);}
+.faq-item.open{border-color:#7A49A8;box-shadow:0 6px 24px rgba(94,42,131,.13);}
+.faq-item.open .faq-answer{max-height:400px;}
+
+/* ===== FOOTER ===== */
+footer{background:linear-gradient(180deg,#4B286A 0%,#402052 45%,#331942 100%);padding:70px 0 0;}
+.footer-container{width:90%;max-width:1350px;margin:auto;display:grid;grid-template-columns:1.2fr 1.2fr 1fr;gap:80px;align-items:start;}
+.left{display:flex;flex-direction:column;justify-content:flex-start;}
+.footer-logo{width:300px;height:300px;display:block;margin-top:-100px;margin-bottom:-40px;}
+.hashtags{display:flex;flex-direction:column;gap:1px;margin-bottom:5px;}
+.hashtags span{color:#fff;font-size:30px;font-weight:600;letter-spacing:.5px;}
+.social-icons{display:flex;gap:14px;}
+.social-icons a{width:70px;height:70px;border-radius:50%;display:flex;justify-content:center;align-items:center;background:#44557A;color:#fff;text-decoration:none;font-size:20px;transition:.3s;}
+.social-icons a:hover{background:#FF9900;transform:translateY(-4px);}
+.footer-column h3{color:#fff;font-size:38px;margin-bottom:35px;position:relative;}
+.footer-column h3::after{content:"";position:absolute;left:0;bottom:-10px;width:70px;height:4px;background:#FF9900;}
+.quick-links{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.quick-links ul{list-style:none;}
+.quick-links ul:first-child{border-right:1px solid rgba(255,255,255,.15);padding-right:35px;}
+.quick-links ul:last-child{padding-left:15px;}
+.quick-links li{margin-bottom:18px;}
+.quick-links a{color:#fff;text-decoration:none;font-size:22px;transition:.3s;}
+.quick-links a:hover{color:#FF9900;padding-left:6px;}
+.contact-item{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px;}
+.contact-item i{color:#FF9900;font-size:24px;margin-top:4px;}
+.contact-item h4{color:#fff;font-size:22px;margin-bottom:8px;}
+.contact-item p{color:#fff;font-size:19px;line-height:1.7;}
+.contact-item a{color:#fff;text-decoration:none;}
+.contact-item a:hover{color:#FF9900;}
+.copyright{margin-top:45px;background:#24304A;text-align:center;color:#fff;padding:18px;font-size:15px;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    .page-banner{margin:28px 60px 0;}
+}
+@media(max-width:768px){
+    .page-banner{margin:28px 16px 0;padding:32px 18px;border-radius:18px;}
+    .faq-wrap{width:95%;}
+    .navbar{height:76px;padding:0;margin-left:0;width:95%;}
+    .logo img{width:130px;}
+    .menu-toggle{display:block;}
+    .nav-links{position:fixed;top:76px;left:0;width:100%;flex-direction:column;align-items:flex-start;gap:0;background:#3E1E5C;max-height:0;overflow:hidden;transition:max-height .35s ease;}
+    .nav-links.active{max-height:80vh;overflow-y:auto;box-shadow:0 15px 30px rgba(0,0,0,.25);}
+    .nav-links li{width:100%;}
+    .nav-links li a{display:block;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.1);}
+    .dropdown>a{justify-content:space-between;}
+    .dropdown-menu{position:static;opacity:1;visibility:visible;transform:none;width:100%;display:none;box-shadow:none;border-radius:0;background:rgba(0,0,0,.15);}
+    .dropdown.open .dropdown-menu{display:block;}
+    .dropdown-menu li a{color:#fff;padding:14px 40px;}
+    .dropdown-menu li a:hover{background:rgba(255,255,255,.1);color:#FF9900;padding-left:46px;}
+    .register-btn{margin-left:0;padding:10px 18px;font-size:14px;}
+    main.page-content{padding-top:76px;}
+    .footer-container{grid-template-columns:1fr;text-align:center;gap:50px;}
+    .left{align-items:center;}
+    .footer-column h3::after{left:50%;transform:translateX(-50%);}
+    .quick-links{grid-template-columns:1fr;}
+    .quick-links ul:first-child{border:none;padding-right:0;}
+    .quick-links ul:last-child{padding-left:0;}
+    .social-icons{justify-content:center;}
+    .contact-item{justify-content:center;text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+<nav class="navbar">
+    <div class="logo"><img src="../Photo/logo.svg" alt="AWS Student Community Day"></div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="#">About <i class="fa-solid fa-angle-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="../About/Event.html">Event</a></li>
+                <li><a href="../About/Health + Safety.html">Health + Safety</a></li>
+                <li><a href="../About/Code of Conduct.html">Code of Conduct</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#">Attend <i class="fa-solid fa-angle-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="Venue + Travel.html">Venue + Travel</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Schedule</a></li>
+        <li><a href="../speaker.html">Speakers</a></li>
+        <li><a href="../sponsor.html">Sponsors</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+        <a href="https://konfhub.com/aws-student-community-day-thane-2026" target="_blank" rel="noopener" class="register-btn">Register Now</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+</nav>
+</header>
+
+<!-- PAGE -->
+<main class="page-content">
+
+    <div class="page-banner">
+        <h1>Frequently Asked Questions</h1>
+    </div>
+
+    <div class="faq-wrap">
+
+        <!-- GENERAL -->
+        <div class="faq-category"><i class="fa-solid fa-circle-info"></i> General</div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-brands fa-aws"></i> What is AWS Student Community Day?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">AWS Student Community Day Thane 2026 is a one-day community-driven event organized by the AWS Student Builder Group at APSIT. It brings together 400+ students, speakers, and industry professionals to learn, network, and explore cloud computing with AWS.</div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-users"></i> Who can attend?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">The event is open to all engineering students, tech enthusiasts, developers, and anyone interested in cloud computing — regardless of their experience level. Beginners are very welcome!</div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-tag"></i> Is registration free?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Please check the registration page on KonfHub for the latest pricing details. Some tickets may be free or subsidized for students. Register early as seats are limited.</div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-seedling"></i> Can beginners attend?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Absolutely! Sessions are available at 100 (Foundational), 200 (Intermediate), and 300 (Advanced) levels. There's something for everyone, whether you're just getting started with AWS or already building on the cloud.</div></div>
+        </div>
+
+        <!-- EVENT DAY -->
+        <div class="faq-category"><i class="fa-solid fa-calendar-check"></i> Event Day</div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-briefcase"></i> What should I bring?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Bring your registration confirmation (email or QR code), a valid college ID, a notebook or laptop if you'd like to take notes, and a water bottle. Comfortable clothes are recommended.</div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-list-ol"></i> What is the event schedule?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Registration opens at 8:00 AM and the event begins at 9:00 AM on 3 October 2026 (Saturday). The full schedule will be published closer to the event date.</div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-certificate"></i> Will certificates be provided?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes, attendance certificates will be provided to all registered participants who attend the event. Details on how to claim them will be shared on the day.</div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-utensils"></i> Is food included?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes! Lunch and refreshments will be provided to all registered attendees. Dietary restrictions can be raised during registration or by contacting us in advance.</div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-car"></i> Is parking available?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Limited parking may be available at or near Kriyan Banquet Hall. We recommend using public transport or cab services to avoid any inconvenience.</div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-handshake"></i> Can I network with speakers and sponsors?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes! Networking is a key part of the event. There will be dedicated networking sessions and breaks where you can interact with speakers, sponsors, and fellow attendees.</div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-clock-rotate-left"></i> What if I reach late?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">You can still enter and attend sessions after the event starts, but we strongly recommend arriving by 8:30 AM to complete registration smoothly and not miss the opening keynote.</div></div>
+        </div>
+
+        <!-- TRAVEL -->
+        <div class="faq-category"><i class="fa-solid fa-route"></i> Travel & Venue</div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-map-location-dot"></i> How do I reach the venue?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">The venue is Kriyan Banquet Hall, Ghodbunder Road, Kasarvadavali, Thane West. It is approximately 10–12 km from Thane Station. Visit our <a href="Venue + Travel.html" style="color:#592A83;font-weight:600;">Venue & Travel</a> page for detailed directions.</div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-taxi"></i> Which transport is recommended?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Taking an Auto or Cab from Thane Station is the most recommended option. Ask for Ghodbunder Naka or Kasarvadavali Naka — the venue is a 3–5 minute walk from there. Avoid buses due to rush hour congestion.</div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-hourglass-start"></i> What time should I arrive?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Registration opens at 8:00 AM. We recommend arriving by 8:30 AM to complete registration comfortably before the event begins at 9:00 AM.</div></div>
+        </div>
+
+        <!-- SUPPORT -->
+        <div class="faq-category"><i class="fa-solid fa-headset"></i> Support</div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-phone"></i> Who should I contact for help?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+                Reach out to us at <a href="mailto:contact@awsscdthane.com" style="color:#592A83;font-weight:600;">contact@awsscdthane.com</a> or call:<br><br>
+                <a href="tel:+917900184769" style="color:#592A83;font-weight:600;">+91 79001 84769</a><br>
+                <a href="tel:+919324345357" style="color:#592A83;font-weight:600;">+91 93243 45357</a>
+            </div></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <div class="faq-question-text"><i class="fa-solid fa-share-nodes"></i> Where can I follow event updates?</div>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Follow us on <a href="https://www.instagram.com/awsbg.apsit" target="_blank" rel="noopener" style="color:#592A83;font-weight:600;">Instagram</a> and <a href="https://www.linkedin.com/company/aws-student-builder-group-apsit" target="_blank" rel="noopener" style="color:#592A83;font-weight:600;">LinkedIn</a> for the latest announcements, schedule updates, and speaker reveals.</div></div>
+        </div>
+
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-container">
+    <div class="footer-column left">
+        <img src="../Photo/logo.svg" class="footer-logo" alt="AWS Student Community Day">
+        <div class="hashtags"><span>#AWSSCDTHANE2026</span><span>#AWSSBGAPSIT</span></div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/awsbg.apsit" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.meetup.com/aws-sbg-at-apshah-inst-of-tech" target="_blank" rel="noopener"><i class="fab fa-meetup"></i></a>
+            <a href="https://www.linkedin.com/company/aws-student-builder-group-apsit" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://chat.whatsapp.com/J1WIbEsZOCfLQZFQPO3HJw" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+    <div class="footer-column">
+        <h3>Quick Links</h3>
+        <div class="quick-links">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Attend</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Schedule</a></li>
+                <li><a href="../sponsor.html">Sponsors</a></li>
+                <li><a href="../speaker.html">Speakers</a></li>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="footer-column">
+        <h3>Contact Us</h3>
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div><h4>Phone</h4><p><a href="tel:+917900184769">+91 79001 84769</a><br><a href="tel:+919324345357">+91 93243 45357</a></p></div>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div><h4>Email</h4><p><a href="mailto:contact@awsscdthane.com">contact@awsscdthane.com</a></p></div>
+        </div>
+    </div>
+</div>
+<div class="copyright">© 2026 AWS Student Community Day Thane. All Rights Reserved.</div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks   = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-xmark');
+});
+document.querySelectorAll('.dropdown > a').forEach(link => {
+    link.addEventListener('click', e => {
+        if (window.innerWidth <= 768) { e.preventDefault(); link.parentElement.classList.toggle('open'); }
+    });
+});
+document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark');
+        }
+    });
+});
+
+// Accordion
+document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        // Toggle clicked
+        if (!isOpen) item.classList.add('open');
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,434 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us – AWS Student Community Day Thane</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#fff;overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh;}
+
+/* ================= NAVBAR ================= */
+
+header{position:fixed;top:0;left:0;width:100%;z-index:999;background:linear-gradient(90deg,#3E1E5C 0%,#592A83 50%,#7A49A8 100%);backdrop-filter:blur(16px);transition:.35s;}
+
+.navbar{width:92%;max-width:1400px;margin:auto;height:90px;display:flex;justify-content:space-between;align-items:center;margin-left:70px;}
+
+.logo img{width:180px;display:block;}
+
+.nav-links{display:flex;align-items:center;list-style:none;gap:30px;}
+.nav-links li{position:relative;}
+.nav-links li a{color:#fff;text-decoration:none;font-size:17px;font-weight:500;transition:.3s;}
+.nav-links li a:hover{color:#FF9900;}
+
+.dropdown>a{display:flex;align-items:center;gap:8px;}
+
+.dropdown-menu{position:absolute;top:55px;left:0;width:290px;background:#fff;border-radius:14px;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(20px);transition:.35s;box-shadow:0 15px 45px rgba(0,0,0,.15);}
+.dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.dropdown-menu li{width:100%;}
+.dropdown-menu li a{display:block;padding:8px 22px;color:#2F3C5A;font-size:15px;transition:.3s;}
+.dropdown-menu li a:hover{background:#FFF4E6;color:#FF9900;padding-left:30px;}
+
+.register-btn{background:#FF9900;color:#fff;text-decoration:none;padding:10px 30px;border-radius:20px;font-weight:600;transition:.3s;margin-left:120px;white-space:nowrap;}
+.register-btn:hover{background:#E68700;transform:translateY(-2px);}
+
+.nav-actions{display:flex;align-items:center;gap:16px;}
+
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;z-index:1001;padding:4px 8px;}
+
+/* ================= PAGE ================= */
+
+main.page-content{flex:1;background:linear-gradient(160deg,#dfdaff 10%,#F6F2FB 60%,#dfdaff 100%);padding-top:90px;padding-bottom:70px;}
+
+/* Banner */
+.page-banner{background:linear-gradient(90deg,#3E1E5C 0%,#592A83 50%,#7A49A8 100%);border-radius:28px;margin:40px 240px 0;padding:8px 40px;text-align:center;}
+.page-banner h1{color:#fff;font-size:clamp(1.6rem,4vw,2.8rem);font-weight:800;letter-spacing:3px;text-transform:uppercase;line-height:1.15;}
+
+/* Container */
+.contact-wrap{width:90%;max-width:1000px;margin:44px auto 0;}
+
+/* Two-column layout */
+.contact-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:32px;align-items:start;}
+
+/* Info card */
+.contact-info-card{background:#fff;border-radius:20px;box-shadow:0 6px 30px rgba(94,42,131,.1);padding:36px 32px;}
+.contact-info-card h2{font-size:1.15rem;font-weight:700;color:#3E1E5C;margin-bottom:28px;}
+
+.c-item{display:flex;gap:16px;align-items:flex-start;margin-bottom:26px;}
+.c-item:last-child{margin-bottom:0;}
+.c-item i{color:#FF9900;font-size:1.2rem;margin-top:3px;flex-shrink:0;width:22px;text-align:center;}
+.c-item div strong{display:block;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:#999;margin-bottom:4px;}
+.c-item div span, .c-item div a{font-size:.93rem;font-weight:500;color:#2F1B4E;text-decoration:none;line-height:1.6;display:block;}
+.c-item div a:hover{color:#FF9900;}
+
+/* Social */
+.contact-social{display:flex;gap:12px;margin-top:28px;}
+.contact-social a{width:40px;height:40px;border-radius:50%;background:#f0ebff;color:#592A83;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none;transition:.3s;}
+.contact-social a:hover{background:#FF9900;color:#fff;transform:translateY(-3px);}
+
+/* Form card */
+.contact-form-card{background:#fff;border-radius:20px;box-shadow:0 6px 30px rgba(94,42,131,.1);padding:36px 38px;}
+.contact-form-card h2{font-size:1.15rem;font-weight:700;color:#3E1E5C;margin-bottom:28px;}
+
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:.85rem;font-weight:600;color:#3E1E5C;margin-bottom:7px;}
+.form-group label .req{color:#FF9900;margin-left:2px;}
+.form-group input,
+.form-group textarea{width:100%;padding:12px 16px;border:1.8px solid #ddd6f0;border-radius:12px;font-size:.93rem;font-family:'Poppins',sans-serif;color:#2F1B4E;background:#faf9ff;outline:none;transition:.3s;}
+.form-group input:focus,
+.form-group textarea:focus{border-color:#7A49A8;background:#fff;box-shadow:0 0 0 3px rgba(122,73,168,.1);}
+.form-group textarea{resize:vertical;min-height:110px;}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+
+.submit-wrap{margin-top:24px;}
+.submit-btn{background:linear-gradient(90deg,#592A83 0%,#7A49A8 100%);color:#fff;border:none;padding:13px 48px;border-radius:50px;font-size:.97rem;font-weight:700;cursor:pointer;transition:.3s;box-shadow:0 6px 20px rgba(89,42,131,.3);}
+.submit-btn:hover{background:#FF9900;transform:translateY(-2px);box-shadow:0 8px 24px rgba(89,42,131,.35);}
+
+/* ================= FOOTER ================= */
+
+footer{background:linear-gradient(180deg,#4B286A 0%,#402052 45%,#331942 100%);padding:70px 0 0;}
+
+.footer-container{width:90%;max-width:1350px;margin:auto;display:grid;grid-template-columns:1.2fr 1.2fr 1fr;gap:80px;align-items:start;}
+
+.left{display:flex;flex-direction:column;justify-content:flex-start;}
+.footer-logo{width:300px;height:300px;display:block;margin-top:-100px;margin-bottom:-40px;}
+
+.hashtags{display:flex;flex-direction:column;gap:1px;margin-bottom:5px;}
+.hashtags span{color:#fff;font-size:30px;font-weight:600;letter-spacing:.5px;}
+
+.social-icons{display:flex;gap:14px;}
+.social-icons a{width:70px;height:70px;border-radius:50%;display:flex;justify-content:center;align-items:center;background:#44557A;color:#fff;text-decoration:none;font-size:20px;transition:.3s;}
+.social-icons a:hover{background:#FF9900;transform:translateY(-4px);}
+
+.footer-column h3{color:#fff;font-size:38px;margin-bottom:35px;position:relative;}
+.footer-column h3::after{content:"";position:absolute;left:0;bottom:-10px;width:70px;height:4px;background:#FF9900;}
+
+.quick-links{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.quick-links ul{list-style:none;}
+.quick-links ul:first-child{border-right:1px solid rgba(255,255,255,.15);padding-right:35px;}
+.quick-links ul:last-child{padding-left:15px;}
+.quick-links li{margin-bottom:18px;}
+.quick-links a{color:#fff;text-decoration:none;font-size:22px;transition:.3s;}
+.quick-links a:hover{color:#FF9900;padding-left:6px;}
+
+.contact-item{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px;}
+.contact-item i{color:#FF9900;font-size:24px;margin-top:4px;}
+.contact-item h4{color:#fff;font-size:22px;margin-bottom:8px;}
+.contact-item p{color:#fff;font-size:19px;line-height:1.7;}
+.contact-item a{color:#fff;text-decoration:none;}
+.contact-item a:hover{color:#FF9900;}
+
+.copyright{margin-top:45px;background:#24304A;text-align:center;color:#fff;padding:18px;font-size:15px;}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+    .contact-layout{grid-template-columns:1fr;}
+    .page-banner{margin:28px 60px 0;}
+}
+
+@media(max-width:768px){
+    .page-banner{margin:28px 16px 0;padding:36px 20px;border-radius:18px;}
+    .contact-wrap{width:95%;}
+    .contact-info-card,.contact-form-card{padding:26px 20px;}
+    .form-row{grid-template-columns:1fr;}
+    .navbar{height:76px;padding:0;margin-left:0;width:95%;}
+    .logo img{width:130px;}
+    .menu-toggle{display:block;}
+    .nav-links{position:fixed;top:76px;left:0;width:100%;flex-direction:column;align-items:flex-start;gap:0;background:#3E1E5C;max-height:0;overflow:hidden;transition:max-height .35s ease;}
+    .nav-links.active{max-height:80vh;overflow-y:auto;box-shadow:0 15px 30px rgba(0,0,0,.25);}
+    .nav-links li{width:100%;}
+    .nav-links li a{display:block;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.1);}
+    .dropdown>a{justify-content:space-between;}
+    .dropdown-menu{position:static;opacity:1;visibility:visible;transform:none;width:100%;display:none;box-shadow:none;border-radius:0;background:rgba(0,0,0,.15);}
+    .dropdown.open .dropdown-menu{display:block;}
+    .dropdown-menu li a{color:#fff;padding:14px 40px;}
+    .dropdown-menu li a:hover{background:rgba(255,255,255,.1);color:#FF9900;padding-left:46px;}
+    .register-btn{margin-left:0;padding:10px 18px;font-size:14px;}
+    main.page-content{padding-top:76px;}
+    .footer-container{grid-template-columns:1fr;text-align:center;gap:50px;}
+    .left{align-items:center;}
+    .footer-column h3::after{left:50%;transform:translateX(-50%);}
+    .quick-links{grid-template-columns:1fr;}
+    .quick-links ul:first-child{border:none;padding-right:0;}
+    .quick-links ul:last-child{padding-left:0;}
+    .social-icons{justify-content:center;}
+    .contact-item{justify-content:center;text-align:left;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+<nav class="navbar">
+
+    <div class="logo">
+        <img src="Photo/logo.svg" alt="AWS Student Community Day">
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="#">About <i class="fa-solid fa-angle-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="About/Event.html">Event</a></li>
+                <li><a href="About/Health + Safety.html">Health + Safety</a></li>
+                <li><a href="About/Code of Conduct.html">Code of Conduct</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#">Attend <i class="fa-solid fa-angle-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="Attend/Venue + Travel.html">Venue + Travel</a></li>
+                <li><a href="Attend/FAQ.html">FAQ</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Schedule</a></li>
+        <li><a href="speaker.html">Speakers</a></li>
+        <li><a href="sponsor.html">Sponsors</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+        <a href="https://konfhub.com/aws-student-community-day-thane-2026" target="_blank" rel="noopener" class="register-btn">Register Now</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+</nav>
+</header>
+
+<!-- ================= CONTACT PAGE ================= -->
+
+<main class="page-content">
+
+    <div class="page-banner">
+        <h1>Contact Us</h1>
+    </div>
+
+    <div class="contact-wrap">
+        <div class="contact-layout">
+
+            <!-- INFO -->
+            <div class="contact-info-card">
+                <h2>Get in Touch</h2>
+
+                <div class="c-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <strong>Phone</strong>
+                        <a href="tel:+917900184769">+91 79001 84769</a>
+                        <a href="tel:+919324345357">+91 93243 45357</a>
+                    </div>
+                </div>
+
+                <div class="c-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <a href="mailto:contact@awsscdthane.com">contact@awsscdthane.com</a>
+                    </div>
+                </div>
+
+                <div class="c-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <strong>Venue</strong>
+                        <span>Kriyan Banquet, Thane</span>
+                    </div>
+                </div>
+
+                <div class="c-item">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <div>
+                        <strong>Date</strong>
+                        <span>3 October 2026 (Saturday)</span>
+                    </div>
+                </div>
+
+                <div class="contact-social">
+                    <a href="https://www.instagram.com/awsbg.apsit" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.meetup.com/aws-sbg-at-apshah-inst-of-tech" target="_blank" rel="noopener" aria-label="Meetup"><i class="fab fa-meetup"></i></a>
+                    <a href="https://www.linkedin.com/company/aws-student-builder-group-apsit" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://chat.whatsapp.com/J1WIbEsZOCfLQZFQPO3HJw" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <div class="contact-form-card">
+                <h2>Send us a Message</h2>
+
+                <form id="contactForm" novalidate>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cName">Name <span class="req">*</span></label>
+                            <input type="text" id="cName" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cEmail">Email <span class="req">*</span></label>
+                            <input type="email" id="cEmail" name="email" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cPhone">Phone No</label>
+                            <input type="tel" id="cPhone" name="phone" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="cSubject">Subject <span class="req">*</span></label>
+                            <input type="text" id="cSubject" name="subject" placeholder="What's this about?" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cDesc">Description <span class="req">*</span></label>
+                        <textarea id="cDesc" name="description" placeholder="Tell us more..." required></textarea>
+                    </div>
+
+                    <div class="submit-wrap">
+                        <button type="submit" class="submit-btn">
+                            <i class="fa-solid fa-paper-plane" style="margin-right:8px;"></i>
+                            Send Message
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+<div class="footer-container">
+
+    <div class="footer-column left">
+        <img src="Photo/logo.svg" class="footer-logo" alt="AWS Student Community Day">
+        <div class="hashtags">
+            <span>#AWSSCDTHANE2026</span>
+            <span>#AWSSBGAPSIT</span>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/awsbg.apsit" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.meetup.com/aws-sbg-at-apshah-inst-of-tech" target="_blank" rel="noopener"><i class="fab fa-meetup"></i></a>
+            <a href="https://www.linkedin.com/company/aws-student-builder-group-apsit" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://chat.whatsapp.com/J1WIbEsZOCfLQZFQPO3HJw" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <div class="footer-column">
+        <h3>Quick Links</h3>
+        <div class="quick-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Attend</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="Attend/FAQ.html">FAQ</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Schedule</a></li>
+                <li><a href="sponsor.html">Sponsors</a></li>
+                <li><a href="speaker.html">Speakers</a></li>
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-column">
+        <h3>Contact Us</h3>
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+                <h4>Phone</h4>
+                <p>
+                    <a href="tel:+917900184769">+91 79001 84769</a><br>
+                    <a href="tel:+919324345357">+91 93243 45357</a>
+                </p>
+            </div>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+                <h4>Email</h4>
+                <p><a href="mailto:contact@awsscdthane.com">contact@awsscdthane.com</a></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="copyright">
+    © 2026 AWS Student Community Day Thane. All Rights Reserved.
+</div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks   = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-xmark');
+});
+
+document.querySelectorAll('.dropdown > a').forEach(link => {
+    link.addEventListener('click', e => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            link.parentElement.classList.toggle('open');
+        }
+    });
+});
+
+document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+        }
+    });
+});
+
+document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const required = e.target.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(f => {
+        if (!f.value.trim()) { f.style.borderColor = '#e53e3e'; valid = false; }
+        else f.style.borderColor = '#ddd6f0';
+    });
+    if (valid) {
+        alert('Thanks for reaching out! We\'ll get back to you soon.');
+        e.target.reset();
+    }
+});
+</script>
+
+</body>
+</html>
