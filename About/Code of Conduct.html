@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -15,7 +15,7 @@ body{background:#fff;overflow-x:hidden;display:flex;flex-direction:column;min-he
 header{position:fixed;top:0;left:0;width:100%;z-index:999;background:linear-gradient(90deg,#3E1E5C 0%,#592A83 50%,#7A49A8 100%);backdrop-filter:blur(16px);transition:.35s;}
 .navbar{width:92%;max-width:1400px;margin:auto;height:90px;display:flex;justify-content:space-between;align-items:center;margin-left:70px;}
 .logo img{width:180px;display:block;}
-.nav-links{display:flex;align-items:center;list-style:none;gap:30px;}
+.nav-links{display:flex;align-items:center;list-style:none;gap:42px;}
 .nav-links li{position:relative;}
 .nav-links li a{color:#fff;text-decoration:none;font-size:17px;font-weight:500;transition:.3s;}
 .nav-links li a:hover{color:#FF9900;}
@@ -25,7 +25,21 @@ header{position:fixed;top:0;left:0;width:100%;z-index:999;background:linear-grad
 .dropdown-menu li{width:100%;}
 .dropdown-menu li a{display:block;padding:8px 22px;color:#2F3C5A;font-size:15px;transition:.3s;}
 .dropdown-menu li a:hover{background:#FFF4E6;color:#FF9900;padding-left:30px;}
-.register-btn{background:#FF9900;color:#fff;text-decoration:none;padding:10px 30px;border-radius:20px;font-weight:600;transition:.3s;margin-left:120px;white-space:nowrap;}
+.register-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background:#FF9900;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 28px;
+    border-radius:8px;
+    font-weight:600;
+    white-space:nowrap;
+    min-width:170px;
+    margin-left:60px;
+    transition:.3s;
+}
 .register-btn:hover{background:#E68700;transform:translateY(-2px);}
 .nav-actions{display:flex;align-items:center;gap:16px;}
 .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;z-index:1001;padding:4px 8px;}
@@ -92,7 +106,21 @@ footer{background:linear-gradient(180deg,#4B286A 0%,#402052 45%,#331942 100%);pa
     .dropdown.open .dropdown-menu{display:block;}
     .dropdown-menu li a{color:#fff;padding:10px 40px;}
     .dropdown-menu li a:hover{background:rgba(255,255,255,.1);color:#FF9900;padding-left:46px;}
-    .register-btn{margin-left:0;padding:10px 18px;font-size:14px;}
+    .register-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background:#FF9900;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 28px;
+    border-radius:8px;
+    font-weight:600;
+    white-space:nowrap;
+    min-width:170px;
+    margin-left:60px;
+    transition:.3s;
+}
     main.page-content{padding-top:76px;}
     .footer-container{grid-template-columns:1fr;text-align:center;gap:50px;}
     .left{align-items:center;}
@@ -110,7 +138,7 @@ footer{background:linear-gradient(180deg,#4B286A 0%,#402052 45%,#331942 100%);pa
 <nav class="navbar">
     <div class="logo"><img src="../Photo/logo.svg" alt="AWS Student Community Day"></div>
     <ul class="nav-links" id="navLinks">
-        <li><a href="../index.html">Home</a></li>
+        <li><a href="../landing.html">Home</a></li>
         <li class="dropdown">
             <a href="#">About <i class="fa-solid fa-angle-down"></i></a>
             <ul class="dropdown-menu">
@@ -122,6 +150,8 @@ footer{background:linear-gradient(180deg,#4B286A 0%,#402052 45%,#331942 100%);pa
         <li class="dropdown">
             <a href="#">Attend <i class="fa-solid fa-angle-down"></i></a>
             <ul class="dropdown-menu">
+                <li><a href="../Attend/register.html">Register</a></li>
+                
                 <li><a href="../Attend/Venue + Travel.html">Venue + Travel</a></li>
                 <li><a href="../Attend/FAQ.html">FAQ</a></li>
             </ul>
@@ -181,8 +211,8 @@ footer{background:linear-gradient(180deg,#4B286A 0%,#402052 45%,#331942 100%);pa
             <div class="contact-box">
                 <i class="fa-solid fa-envelope"></i>
                 <div>
-                    <p>Email: <a href="mailto:contact@awsscdthane.com">contact@awsscdthane.com</a></p>
-                    <p>Phone: <a href="tel:+917900184769">+91 79001 84769</a> &nbsp;|&nbsp; <a href="tel:+919324345357">+91 93243 45357</a></p>
+                    <p>Email: <a href="mailto:awsccapsit@gmail.com">awsccapsit@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+917900184769">+91 79001 84769 (Arya Hegiste)</a> &nbsp;|&nbsp; <a href="tel:+919324345357">+91 93243 45357 (Manthan Patil)</a></p>
                 </div>
             </div>
         </div>
@@ -206,7 +236,7 @@ footer{background:linear-gradient(180deg,#4B286A 0%,#402052 45%,#331942 100%);pa
         <h3>Quick Links</h3>
         <div class="quick-links">
             <ul>
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="../landing.html">Home</a></li>
                 <li><a href="Event.html">About</a></li>
                 <li><a href="../Attend/Venue + Travel.html">Attend</a></li>
                 <li><a href="../contact.html">Contact</a></li>
@@ -222,8 +252,8 @@ footer{background:linear-gradient(180deg,#4B286A 0%,#402052 45%,#331942 100%);pa
     </div>
     <div class="footer-column">
         <h3>Contact Us</h3>
-        <div class="contact-item"><i class="fas fa-phone"></i><div><h4>Phone</h4><p><a href="tel:+917900184769">+91 79001 84769</a><br><a href="tel:+919324345357">+91 93243 45357</a></p></div></div>
-        <div class="contact-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p><a href="mailto:contact@awsscdthane.com">contact@awsscdthane.com</a></p></div></div>
+        <div class="contact-item"><i class="fas fa-phone"></i><div><h4>Phone</h4><p><a href="tel:+917900184769">+91 79001 84769 (Arya Hegiste)</a><br><a href="tel:+919324345357">+91 93243 45357 (Manthan Patil)</a></p></div></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p><a href="mailto:awsccapsit@gmail.com">awsccapsit@gmail.com</a></p></div></div>
     </div>
 </div>
 <div class="copyright">© 2026 AWS Student Community Day Thane. All Rights Reserved.</div>

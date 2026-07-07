@@ -1,0 +1,1002 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Register — AWS Student Community Day Thane</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fff;
+    overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background: linear-gradient(90deg, #3E1E5C 0%, #592A83 50%, #7A49A8 100%);
+    backdrop-filter:blur(16px);
+    transition:.35s;
+}
+
+.navbar{
+    width:92%;
+    max-width:1400px;
+    margin:auto;
+    height:90px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-left:70px;
+}
+
+.logo img{
+    width:180px;
+    display:block;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    gap:42px;
+}
+
+.nav-links li{
+    position:relative;
+}
+
+.nav-links li a{
+    color:#fff;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links li a:hover{
+    color:#FF9900;
+}
+
+.dropdown>a{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.dropdown-menu{
+    position:absolute;
+    top:55px;
+    left:0;
+    width:290px;
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px);
+    transition:.35s;
+    box-shadow:0 15px 45px rgba(0,0,0,.15);
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.dropdown-menu li{
+    width:100%;
+}
+
+.dropdown-menu li a{
+    display:block;
+    padding:8px 22px;
+    color:#2F3C5A;
+    font-size:15px;
+    transition:.3s;
+}
+
+.dropdown-menu li a:hover{
+    background:#FFF4E6;
+    color:#FF9900;
+    padding-left:30px;
+}
+
+.register-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#FF9900;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 28px;
+    border-radius:8px;
+    font-weight:600;
+    white-space:nowrap;
+    min-width:170px;
+    margin-left:60px;
+    transition:.3s;
+}
+
+.register-btn:hover{
+    background:#E68700;
+    transform:translateY(-2px);
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:26px;
+    cursor:pointer;
+    z-index:1001;
+    padding:4px 8px;
+}
+
+/* ================= PAGE BANNER ================= */
+.register-page{
+    flex:1;
+    background:
+        radial-gradient(circle at top left,#d9d1ff 0%,transparent 35%),
+        radial-gradient(circle at bottom right,#c7b7ff 0%,transparent 40%),
+        linear-gradient(180deg,#ece7ff 0%,#dfdaff 40%,#f6f2fb 70%,#ece7ff 100%);
+    padding-top:90px;
+    padding-bottom:70px;
+}
+
+.page-banner{
+    background: linear-gradient(90deg, #3E1E5C 0%, #592A83 50%, #7A49A8 100%);
+    border-radius:28px;
+    margin:40px 240px 0;
+    padding:8px 40px;
+    text-align:center;
+}
+
+.page-banner h1{
+    color:#fff;
+    font-size:clamp(1.6rem, 4vw, 2.8rem);
+    font-weight:800;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    line-height:1.15;
+}
+
+/* ================= TICKETS SECTION ================= */
+
+.tickets{
+    position:relative;
+    padding:50px 6% 80px;
+}
+
+.tickets-heading{
+    text-align:center;
+    max-width:900px;
+    margin:0 auto 50px;
+}
+
+.tickets-heading h2{
+    font-size:clamp(26px, 3.5vw, 40px);
+    color:#2F3C5A;
+    font-weight:800;
+    margin-bottom:14px;
+}
+
+.tickets-heading p{
+    font-size:16px;
+    color:#5a5a6b;
+    line-height:1.7;
+}
+
+.ticket-cards{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:32px;
+}
+
+.ticket-card{
+    width:320px;
+    max-width:100%;
+    background: linear-gradient(160deg, #6B3FA0 0%, #4B2A72 60%, #3E1E5C 100%);
+    border:2px solid #eee;
+    border-radius:18px;
+    padding:40px 24px;
+    text-align:center;
+    transition:.3s;
+    position:relative;
+}
+
+.ticket-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(89,42,131,.15);
+    border-color:#3E1E5C;
+}
+
+.ticket-card.active{
+    border-color:#3E1E5C;
+    box-shadow:0 20px 45px rgba(255,153,0,.18);
+    transform:scale(1.05);
+}
+
+.ticket-card.active:hover{
+    transform:translateY(-10px) scale(1.07);
+    box-shadow:0 25px 55px rgba(255,153,0,.35);
+}
+
+.ticket-card.disabled{
+    background:#fff;
+    border-color:#eee;
+}
+
+.ticket-card.disabled .ticket-name,
+.ticket-card.disabled .ticket-price,
+.ticket-card.disabled .ticket-price span,
+.ticket-card.disabled .ticket-note{
+    color:#000;
+}
+
+.ticket-card.disabled:hover{
+    transform:none;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    border-color:#ddd;
+    cursor:not-allowed;
+}
+
+.ticket-name{
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#fff;
+    margin-bottom:18px;
+}
+
+.ticket-price{
+    font-size:44px;
+    font-weight:800;
+    color:#fff;
+    margin-bottom:6px;
+}
+
+.ticket-price span{
+    font-size:16px;
+    font-weight:500;
+    color:#fff;
+}
+
+.ticket-note{
+    font-size:13px;
+    color:#fff;
+    margin-bottom:28px;
+}
+
+.ticket-btn{
+    display:inline-block;
+    width:70%;
+    background:#592A83;
+    color:#fff;
+    text-decoration:none;
+    padding:14px 0;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.ticket-card.active .ticket-btn{
+    background:rgba(183,177,189,.25);
+    color:#fff;
+}
+
+.ticket-btn:hover{
+    opacity:.88;
+    transform:translateY(-2px);
+}
+
+.ticket-btn.disabled{
+    background:#fff;
+    color:#000;
+    border:2px solid #592A83;
+    cursor:not-allowed;
+    pointer-events:none;
+}
+
+/* ---- Inclusions ---- */
+
+.inclusions{
+    max-width:1000px;
+    margin:60px auto 0;
+    background:transparent;
+    border-radius:20px;
+    padding:50px 40px;
+}
+
+.inclusions h3{
+    text-align:center;
+    font-size:clamp(20px, 2.5vw, 28px);
+    color:#000;
+    font-weight:900;
+    margin-bottom:36px;
+}
+
+.inclusions-list{
+    list-style:none;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px 30px;
+}
+
+.inclusions-list li:first-child{
+    grid-column:1 / span 2;
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    font-size:18px;
+    font-weight:500;
+    color:#000;
+    line-height:1.4;
+}
+
+.inclusions-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:18px;
+    font-weight:500;
+    color:#000;
+    line-height:1.4;
+}
+
+.inclusions-list li i{
+    color:#FF9900;
+    font-size:18px;
+    margin-top:3px;
+    flex-shrink:0;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    background: linear-gradient(180deg, #4B286A 0%, #402052 45%, #331942 100%);
+    padding:70px 0 0;
+
+}
+
+.footer-container{
+
+    width:90%;
+    max-width:1350px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1.2fr 1fr;
+
+    gap:80px;
+
+    align-items:start;
+
+}
+
+.left{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+
+}
+
+.footer-logo{
+
+    width:300px;
+    height:300px;
+    display:block;
+    margin-top:-100px;
+    margin-bottom:-40px;
+
+}
+
+.hashtags{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:1px;
+
+    margin-bottom:5px;
+
+}
+
+.hashtags span{
+
+    color:#ffffff;
+
+    font-size:30px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+}
+
+.social-icons{
+
+    display:flex;
+
+    gap:14px;
+
+}
+
+.social-icons a{
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#44557A;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.social-icons a:hover{
+
+    background:#FF9900;
+
+    transform:translateY(-4px);
+
+}
+
+.footer-column h3{
+
+    color:#fff;
+
+    font-size:38px;
+
+    margin-bottom:35px;
+
+    position:relative;
+
+}
+
+.footer-column h3::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-10px;
+
+    width:70px;
+
+    height:4px;
+
+    background:#FF9900;
+
+}
+
+.quick-links{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:40px;
+
+}
+
+.quick-links ul{
+
+    list-style:none;
+
+}
+
+.quick-links ul:first-child{
+
+    border-right:1px solid rgba(255,255,255,.15);
+
+    padding-right:35px;
+
+}
+
+.quick-links ul:last-child{
+
+    padding-left:15px;
+
+}
+
+.quick-links li{
+
+    margin-bottom:18px;
+
+}
+
+.quick-links a{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:22px;
+
+    transition:.3s;
+
+}
+
+.quick-links a:hover{
+
+    color:#FF9900;
+
+    padding-left:6px;
+
+}
+
+.contact-item{
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:flex-start;
+
+    margin-bottom:28px;
+
+}
+
+.contact-item i{
+
+    color:#FF9900;
+
+    font-size:24px;
+
+    margin-top:4px;
+
+}
+
+.contact-item h4{
+
+    color:#ffffff;
+
+    font-size:22px;
+
+    margin-bottom:8px;
+
+}
+
+.contact-item p{
+
+    color:#ffffff;
+
+    font-size:19px;
+
+    line-height:1.7;
+
+}
+
+.contact-item a{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+}
+
+.contact-item a:hover{
+
+    color:#FF9900;
+
+}
+
+.copyright{
+
+    margin-top:45px;
+
+    background:#24304A;
+
+    text-align:center;
+
+    color:#ffffff;
+
+    padding:18px;
+
+    font-size:15px;
+
+}
+
+
+@media(max-width:900px){
+    .ticket-cards{ gap:20px; }
+    .inclusions{ padding:36px 20px; }
+    .inclusions-list{ grid-template-columns:1fr; }
+    .inclusions-list li:first-child{ grid-column:auto; }
+    .page-banner{ margin:28px 60px 0; }
+}
+
+@media(max-width:768px){
+    .page-banner{ margin:28px 16px 0; padding:36px 20px; border-radius:18px; }
+    .ticket-card.active{ transform:none; order:-1; }
+    .ticket-card.active:hover{ transform:translateY(-6px); }
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="../Photo/logo.svg" alt="AWS Student Community Day">
+
+</div>
+
+<ul class="nav-links" id="navLinks">
+
+<li><a href="../landing.html">Home</a></li>
+
+<li class="dropdown">
+
+<a href="#">
+About
+<i class="fa-solid fa-angle-down"></i>
+</a>
+
+<ul class="dropdown-menu">
+
+<li><a href="../About/Event.html">Event</a></li>
+
+<li><a href="../About/Health + Safety.html">Health + Safety</a></li>
+
+<li><a href="../About/Code of Conduct.html">Code of Conduct</a></li>
+
+</ul>
+
+</li>
+
+<li class="dropdown">
+
+<a href="#">
+Attend
+<i class="fa-solid fa-angle-down"></i>
+</a>
+
+<ul class="dropdown-menu">
+
+<li><a href="register.html">Register</a></li>
+
+<li><a href="Venue + Travel.html">Venue + Travel</a></li>
+
+<li><a href="FAQ.html">FAQ</a></li>
+
+</ul>
+
+</li>
+
+<li><a href="../landing.html#schedule">Schedule</a></li>
+
+<li><a href="../speaker.html">Speakers</a></li>
+
+<li><a href="../sponsor.html">Sponsors</a></li>
+
+<li><a href="../contact.html">Contact</a></li>
+
+</ul>
+
+<div class="nav-actions">
+
+<a href="https://konfhub.com/aws-student-community-day-thane-2026" target="_blank" rel="noopener" class="register-btn">Register Now</a>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+<i class="fa-solid fa-bars"></i>
+</button>
+
+</div>
+
+</nav>
+
+</header>
+
+<!-- ================= PAGE ================= -->
+<div class="register-page">
+
+    <div class="page-banner">
+        <h1>Register</h1>
+    </div>
+
+<!-- ================= TICKETS ================= -->
+
+<section class="tickets">
+
+    <div class="ticket-cards">
+
+        <div class="ticket-card disabled">
+
+            <div class="ticket-name">Regular</div>
+
+            <div class="ticket-price">₹700</div>
+
+            <div class="ticket-note">Opens after Early Bird</div>
+
+            <a href="#" class="ticket-btn disabled">Coming Soon</a>
+
+        </div>
+
+        <div class="ticket-card active">
+
+            <div class="ticket-name">Early Bird</div>
+
+            <div class="ticket-price">₹350</div>
+
+            <div class="ticket-note">Only 50 seats available</div>
+
+            <a href="https://konfhub.com/aws-student-community-day-thane-2026" target="_blank" rel="noopener" class="ticket-btn">Register Now</a>
+
+        </div>
+
+        <div class="ticket-card disabled">
+
+            <div class="ticket-name">Standard</div>
+
+            <div class="ticket-price">₹500</div>
+
+            <div class="ticket-note">Opens after Early Bird</div>
+
+            <a href="#" class="ticket-btn disabled">Coming Soon</a>
+
+        </div>
+
+    </div>
+
+    <div class="inclusions">
+
+        <h3>Your AWS Student Community Day Thane 2026 registration includes:</h3>
+
+        <ul class="inclusions-list">
+
+            <li><i class="fa-solid fa-circle-check"></i> Full access to all conference content — <br>keynotes, technical sessions, lightning talks, and panel discussions</li>
+
+            <li><i class="fa-solid fa-circle-check"></i> Exclusive event swags</li>
+
+            <li><i class="fa-solid fa-circle-check"></i> Social events + networking activities</li>
+
+            <li><i class="fa-solid fa-circle-check"></i> Access to sponsor booths</li>
+
+            <li><i class="fa-solid fa-circle-check"></i> Breakfast, Lunch, Hi-Tea, snacks, and coffee</li>
+
+            <li><i class="fa-solid fa-circle-check"></i> Digital Attendee Certificate</li>
+
+            <li><i class="fa-solid fa-circle-check"></i> Access to session recordings after the event</li>
+
+        </ul>
+
+    </div>
+
+</section>
+</div>
+<footer>
+
+<div class="footer-container">
+
+<!-- LEFT -->
+
+<div class="footer-column left">
+
+<img src="../Photo/logo.svg" class="footer-logo" alt="AWS Student Community Day">
+
+<div class="hashtags">
+
+<span>#AWSSCDTHANE2026</span>
+
+<span>#AWSSBGAPSIT</span>
+
+</div>
+
+<div class="social-icons">
+
+<a href="https://www.instagram.com/awsbg.apsit" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+
+<a href="https://www.meetup.com/aws-sbg-at-apshah-inst-of-tech" target="_blank" rel="noopener"><i class="fab fa-meetup"></i></a>
+
+<a href="https://www.linkedin.com/company/aws-student-builder-group-apsit" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+
+<a href="https://chat.whatsapp.com/J1WIbEsZOCfLQZFQPO3HJw" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+
+</div>
+
+</div>
+
+<!-- MIDDLE -->
+
+<div class="footer-column">
+
+<h3>Quick Links</h3>
+
+<div class="quick-links">
+
+<ul>
+
+<li><a href="../landing.html">Home</a></li>
+
+<li><a href="../About/Event.html">About</a></li>
+
+<li><a href="register.html">Attend</a></li>
+
+<li><a href="../contact.html">Contact</a></li>
+
+<li><a href="FAQ.html">FAQ</a></li>
+
+</ul>
+
+<ul>
+
+<li><a href="../landing.html#schedule">Schedule</a></li>
+
+<li><a href="../sponsor.html">Sponsors</a></li>
+
+<li><a href="../speaker.html">Speakers</a></li>
+
+<li><a href="../About/Health + Safety.html">Health + Safety</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="footer-column">
+
+<h3>Contact Us</h3>
+
+<div class="contact-item">
+
+<i class="fas fa-phone"></i>
+
+<div>
+
+<h4>Phone</h4>
+
+<p>
+
+<a href="tel:+917900184769">+91 7900184769(Arya Hegiste)
+</a><br>
+
+<a href="tel:+919324345357">+91 93243 45357(Manthan Patil)
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="contact-item">
+
+<i class="fas fa-envelope"></i>
+
+<div>
+
+<h4>Email</h4>
+
+<p>
+
+<a href="mailto:awsccapsit@gmail.com">
+
+awsccapsit@gmail.com
+
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+© 2026 AWS Student Community Day Thane. All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-xmark');
+});
+
+document.querySelectorAll('.dropdown > a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            link.parentElement.classList.toggle('open');
+        }
+    });
+});
+
+document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+        }
+    });
+});
+</script>
+
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -74,6 +74,8 @@ header{
     justify-content:space-between;
 
     align-items:center;
+
+    margin-left:70px;
 
 }
 
@@ -187,7 +189,7 @@ header{
 
     display:block;
 
-    padding:15px 22px;
+    padding:8px 22px;
 
     color:#2F3C5A;
 
@@ -210,25 +212,23 @@ header{
 /* ================= REGISTER BUTTON ================= */
 
 .register-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
     background:#FF9900;
-
     color:#fff;
-
     text-decoration:none;
 
-    justify-content:center;
-
-    padding:14px 30px;
-
+    padding:12px 28px;
     border-radius:8px;
 
     font-weight:600;
+    white-space: nowrap;      /* Prevents "Register Now" from breaking */
+    min-width:170px;          /* Gives enough width */
+    margin-left:60px;
 
     transition:.3s;
-
-    margin-left:120px;
-
 }
 
 .register-btn:hover{
@@ -257,12 +257,42 @@ header{
     z-index:1001;
     padding:4px 8px;
 }
+.mobile-sticky-register{
+    display:none;
+}
+
+@media(max-width:768px){
+
+.mobile-sticky-register{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:fixed;
+    left:16px;
+    right:16px;
+    bottom:16px;
+    z-index:998;
+    background:#FF9900;
+    color:#fff;
+    text-decoration:none;
+    padding:16px;
+    border-radius:10px;
+    font-weight:600;
+    font-size:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.mobile-sticky-register:active{
+    background:#E68700;
+}
+
+}
 
 /* ================= HERO ================= */
 
 .hero {
     position: relative;
-    background: #f3f2fa;
+    background: linear-gradient(180deg, #f3f2fa 0%, #f3f2fa 70%, #dfdaff 100%);
     height: 100vh;
     height: 100dvh;
     min-height: 560px;
@@ -277,12 +307,13 @@ header{
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("theme.svg");
+    background-image: url("Photo/theme.svg");
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
     z-index: 0;
 }
+
 
 .hero-content {
     position: relative;
@@ -318,7 +349,6 @@ header{
     max-width: 90vw;
     margin: 0 auto;
     display: block;
-    margin-top: -40px;
 }
 
 .hero-content h4{
@@ -372,6 +402,8 @@ header{
 
 .primary-btn{
 
+    width:220px;
+
     background:#FF9900;
 
     color:#fff;
@@ -382,7 +414,7 @@ header{
 
     border-radius:8px;
 
-    font-size: clamp(14px, 1.6vh, 17px);
+    font-size: 20px;
 
     font-weight:600;
 
@@ -485,6 +517,10 @@ header{
     height:76px;
 
     padding:0;
+
+    margin-left:0;
+
+    width:95%;
 
 }
 
@@ -618,28 +654,31 @@ header{
 
 .hero{
 
-    height:auto;
+    height:100dvh;
 
     min-height:100dvh;
 
-    padding:96px 20px 40px;
+    padding:76px 0 80px;
 
-    justify-content:center;
+    justify-content:flex-start;
 
-    align-items:center;   /* keep this LAST in the block, and make sure this is the ONLY .hero rule in this media query */
+    align-items:center;
 
-    margin-left: -20px;
+    margin-left: 0;
 }
 
 
 .hero-logo{
 
-    max-height:70vh;
+    width:100vw;
 
     max-width:100vw;
 
-    align-items:center;
-    justify-content:center;
+    max-height:none;
+
+    display:block;
+
+    margin:0;
 
 }
 
@@ -677,11 +716,7 @@ header{
 
 .hero-buttons{
 
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    margin-top:20px; /* overrides the desktop negative-vh trick, which doesn't work on mobile */
+    display:none;/* overrides the desktop negative-vh trick, which doesn't work on mobile */
 
 }
 
@@ -691,10 +726,586 @@ header{
 
 .hero-logo{
 
-    max-height:50vh;
+    width:100vw;
+    max-width:100vw;
+    max-height:none;
+    display:block;
+    margin:0;
+
+}
+
+}
+@media(max-width:400px){
+
+.timer-num{
+    font-size:20px;
+}
+
+.timer-block{
+    padding:12px 2px 10px;
+}
+
+}
+/* ================= COUNTDOWN SECTION (added) ================= */
+.cta-wrap{
+    background: linear-gradient(160deg, #c0b9eb 10%, #F6F2FB 60%, #dfdaff 100%);
+}
+
+.countdown-section{
+    padding:90px 6% 70px;
+    text-align:center;
+    position:relative;
+    /* background: linear-gradient(160deg, #dfdaff 10%, #F6F2FB 60%, #dfdaff 100%); */
+}
+
+.countdown-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:#592A83;
+    background:rgba(89,42,131,.08);
+    border:1px solid rgba(89,42,131,.18);
+    padding:8px 20px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:26px;
+}
+
+.countdown-eyebrow i{
+    color:#FF9900;
+}
+
+.countdown-title{
+    font-size:clamp(28px,4vw,46px);
+    font-weight:700;
+    color:#2F3C5A;
+    margin-bottom:10px;
+    line-height:1.2;
+}
+
+.countdown-title span{
+    color:#592A83;
+}
+
+.countdown-subtitle{
+    font-size:17px;
+    color:#5A5670;
+    max-width:560px;
+    margin:0 auto 50px;
+}
+
+.countdown-subtitle strong{
+    color:#2F3C5A;
+}
+
+.timer-row{
+    display:flex;
+    justify-content:center;
+    align-items:stretch;
+    gap:22px;
+    flex-wrap:wrap;
+    max-width:900px;
+    margin:0 auto;
+}
+
+.timer-block{
+    background:#fff;
+    border-radius:20px;
+    padding:26px 10px 20px;
+    width:150px;
+    box-shadow:0 20px 45px rgba(63,30,92,.14);
+    border:1px solid rgba(89,42,131,.08);
+    position:relative;
+    overflow:hidden;
+}
+
+.timer-block::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:linear-gradient(90deg,#592A83,#FF9900);
+}
+
+.timer-num{
+    font-size:clamp(36px,6vw,52px);
+    font-weight:800;
+    color:#3E1E5C;
+    line-height:1;
+    font-variant-numeric:tabular-nums;
+}
+
+.timer-label{
+    margin-top:10px;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:600;
+    color:#8A7FA0;
+}
+
+.timer-colon{
+    display:flex;
+    align-items:center;
+    font-size:clamp(28px,5vw,40px);
+    font-weight:700;
+    color:#FF9900;
+    padding-bottom:22px;
+}
+
+/* ================= STATS SECTION (added) ================= */
+
+.stats-section{
+    padding:20px 6% 100px;
+    /* background: linear-gradient(160deg, #dfdaff 10%, #F6F2FB 60%, #dfdaff 100%); */
+}
+
+.stats-grid{
+    max-width:1150px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:26px;
+}
+
+.stat-card{
+    background:#fff;
+    border-radius:18px;
+    padding:34px 20px;
+    text-align:center;
+    box-shadow:0 16px 36px rgba(63,30,92,.10);
+    border:1px solid rgba(89,42,131,.06);
+    transition:.3s;
+    margin-bottom:20px;
+    margin-top:40px;
+
+}
+
+.stat-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 24px 46px rgba(63,30,92,.18);
+}
+
+.stat-icon{
+    width:60px;
+    height:60px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    display:flex;
     align-items:center;
     justify-content:center;
+    background:linear-gradient(135deg,#3E1E5C,#7A49A8);
+    color:#FF9900;
+    font-size:22px;
+}
 
+.stats-heading{
+    text-align:center;
+    max-width:600px;
+    margin:0 auto 44px;
+}
+
+.stats-heading h3{
+    font-size:clamp(22px,3vw,32px);
+    font-weight:700;
+    color:#2F3C5A;
+    margin-bottom:10px;
+    
+}
+
+.stats-heading p{
+    font-size:16px;
+    color:#5A5670;
+}
+
+.stat-number{
+    font-size:clamp(28px,3vw,36px);
+    font-weight:800;
+    color:#2F3C5A;
+    line-height:1;
+    margin-bottom:8px;
+}
+
+.stat-number span{
+    color:#FF9900;
+}
+
+.stat-label{
+    font-size:14px;
+    color:#5A5670;
+    font-weight:500;
+    letter-spacing:.3px;
+}
+
+/* ---- Countdown + Stats responsive (added) ---- */
+
+@media(max-width:1100px){
+
+.stats-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.countdown-section{
+    padding:60px 6% 40px;
+}
+
+.timer-row{
+    gap:8px;
+    flex-wrap:nowrap;
+}
+
+.timer-block{
+    width:auto;
+    flex:1 1 0;
+    min-width:0;
+    padding:14px 4px 12px;
+}
+
+.timer-num{
+    font-size:clamp(22px,7vw,32px);
+}
+
+.timer-label{
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+.timer-colon{
+    display:none;
+}
+
+.stats-grid{
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.stat-card{
+    padding:26px 14px;
+}
+
+}
+
+@media(max-width:420px){
+
+.timer-block{
+    width:calc(50% - 24px);
+}
+
+}
+
+/* ================= FOOTER (added) ================= */
+
+footer{
+
+    background: linear-gradient(180deg, #4B286A 0%, #402052 45%, #331942 100%);
+    padding:70px 0 0;
+
+}
+
+.footer-container{
+
+    width:90%;
+    max-width:1350px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1.2fr 1fr;
+
+    gap:80px;
+
+    align-items:start;
+
+}
+
+.footer-column.left{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+
+}
+
+.footer-logo{
+
+    width:300px;
+    height:300px;
+    display:block;
+    margin-top:-100px;
+    margin-bottom:-40px;
+
+}
+
+.hashtags{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:1px;
+
+    margin-bottom:5px;
+
+}
+
+.hashtags span{
+
+    color:#ffffff;
+
+    font-size:30px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+}
+
+.social-icons{
+
+    display:flex;
+
+    gap:14px;
+
+}
+
+.social-icons a{
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#44557A;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.social-icons a:hover{
+
+    background:#FF9900;
+
+    transform:translateY(-4px);
+
+}
+
+.footer-column h3{
+
+    color:#fff;
+
+    font-size:38px;
+
+    margin-bottom:35px;
+
+    position:relative;
+
+}
+
+.footer-column h3::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-10px;
+
+    width:70px;
+
+    height:4px;
+
+    background:#FF9900;
+
+}
+
+.quick-links{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:40px;
+
+}
+
+.quick-links ul{
+
+    list-style:none;
+
+}
+
+.quick-links ul:first-child{
+
+    border-right:1px solid rgba(255,255,255,.15);
+
+    padding-right:35px;
+
+}
+
+.quick-links ul:last-child{
+
+    padding-left:15px;
+
+}
+
+.quick-links li{
+
+    margin-bottom:18px;
+
+}
+
+.quick-links a{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:22px;
+
+    transition:.3s;
+
+}
+
+.quick-links a:hover{
+
+    color:#FF9900;
+
+    padding-left:6px;
+
+}
+
+.contact-item{
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:flex-start;
+
+    margin-bottom:28px;
+
+}
+
+.contact-item i{
+
+    color:#FF9900;
+
+    font-size:24px;
+
+    margin-top:4px;
+
+}
+
+.contact-item h4{
+
+    color:#ffffff;
+
+    font-size:22px;
+
+    margin-bottom:8px;
+
+}
+
+.contact-item p{
+
+    color:#ffffff;
+
+    font-size:19px;
+
+    line-height:1.7;
+
+}
+
+.contact-item a{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+}
+
+.contact-item a:hover{
+
+    color:#FF9900;
+
+}
+
+.copyright{
+
+    margin-top:45px;
+
+    background:#24304A;
+
+    text-align:center;
+
+    color:#ffffff;
+
+    padding:18px;
+
+    font-size:15px;
+
+}
+
+/* ---- Footer responsive (added) ---- */
+
+@media(max-width:991px){
+
+.footer-container{
+    grid-template-columns:1fr;
+    text-align:center;
+    gap:50px;
+}
+
+.footer-column.left{
+    align-items:center;
+}
+
+.footer-column h3::after{
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.quick-links{
+    grid-template-columns:1fr;
+}
+
+.quick-links ul:first-child{
+    border:none;
+    padding-right:0;
+}
+
+.quick-links ul:last-child{
+    padding-left:0;
+}
+
+.social-icons{
+    justify-content:center;
+}
+
+.contact-item{
+    justify-content:center;
+    text-align:left;
 }
 
 }
@@ -713,13 +1324,13 @@ header{
 
 <div class="logo">
 
-<img src="logo.svg" alt="AWS Student Community Day">
+<img src="Photo/logo.svg" alt="AWS Student Community Day">
 
 </div>
 
 <ul class="nav-links" id="navLinks">
 
-<li><a href="#">Home</a></li>
+<li><a href="landing.html">Home</a></li>
 
 <li class="dropdown">
 
@@ -730,19 +1341,17 @@ About
 
 <ul class="dropdown-menu">
 
-<li><a href="#">Event</a></li>
+<li><a href="About/Event.html">Event</a></li>
 
-<li><a href="#">Health + Safety</a></li>
+<li><a href="About/Health + Safety.html">Health + Safety</a></li>
+<!-- -->
 
-<li><a href="#">Health Measures</a></li>
+<!-- -->
 
-<li><a href="#">Safety Resources + Tips</a></li>
+<!-- -->
+<!-- -->
 
-<li><a href="#">General Safety</a></li>
-
-<li><a href="#">Safety Resources</a></li>
-
-<li><a href="#">Code of Conduct</a></li>
+<li><a href="About/Code of Conduct.html">Code of Conduct</a></li>
 
 </ul>
 
@@ -757,25 +1366,27 @@ Attend
 
 <ul class="dropdown-menu">
 
-<li><a href="#">Travel</a></li>
+<li><a href="Attend/register.html">Register</a></li>
 
-<li><a href="#">Guidance</a></li>
+<li><a href="Attend/Venue + Travel.html">Venue + Travel</a></li>
 
-<li><a href="#">FAQ</a></li>
+<li><a href="Attend/FAQ.html">FAQ</a></li>
 
 </ul>
 
 </li>
 
-<li><a href="#">Schedule</a></li>
+<li><a href="landing.html#schedule">Schedule</a></li>
+<li><a href="speaker.html">Speakers</a></li>
+<li><a href="sponsor.html">Sponsors</a></li>
 
-<li><a href="#">Contact</a></li>
+<li><a href="contact.html">Contact</a></li>
 
 </ul>
 
 <div class="nav-actions">
 
-<a href="#" class="register-btn">Register Now</a>
+<a href="https://konfhub.com/aws-student-community-day-thane-2026" target="_blank" rel="noopener" class="register-btn">Register Now</a>
 
 <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
 <i class="fa-solid fa-bars"></i>
@@ -786,7 +1397,7 @@ Attend
 </nav>
 
 </header>
-
+<a href="https://konfhub.com/aws-student-community-day-thane-2026" target="_blank" rel="noopener" class="mobile-sticky-register">Register Now</a>
 <!-- ================= HERO SECTION ================= -->
 
 <section class="hero">
@@ -798,11 +1409,11 @@ Attend
             <!-- LOGO + REGISTER BUTTON -->
             <div class="hero-left">
 
-                <img src="logo1.svg" class="hero-logo" alt="AWS Student Community Day">
-
+                <img src="Photo/logo1.svg" class="hero-logo" alt="AWS Student Community Day">
                 <div class="hero-buttons">
-                    <a href="#" class="primary-btn">Register Now</a>
-                </div>
+                     <a href="https://konfhub.com/aws-student-community-day-thane-2026" target="_blank" rel="noopener" class="primary-btn">Register Now</a>
+                 </div>
+            </div>
 
             </div>
 
@@ -811,6 +1422,94 @@ Attend
     </div>
 
 </section>
+
+<!-- ================= COUNTDOWN (added) ================= -->
+<div class="cta-wrap">
+<section class="countdown-section">
+
+    <div class="countdown-eyebrow">
+        <i class="fa-solid fa-cloud"></i>
+        3RD OCTOBER &middot; 8:00 AM IST
+    </div>
+
+    <h2 class="countdown-title">The countdown to <span>AWS SCD Thane 2026</span> has begun</h2>
+
+    <p class="countdown-subtitle">
+        Mark your calendars — doors open <strong>8:00 AM, Friday 3rd October</strong>. Here's exactly how long you have left to register your seat.
+    </p>
+
+    <div class="timer-row" id="countdown">
+
+        <div class="timer-block">
+            <div class="timer-num" id="cd-days">00</div>
+            <div class="timer-label">Days</div>
+        </div>
+
+        <div class="timer-colon">:</div>
+
+        <div class="timer-block">
+            <div class="timer-num" id="cd-hours">00</div>
+            <div class="timer-label">Hours</div>
+        </div>
+
+        <div class="timer-colon">:</div>
+
+        <div class="timer-block">
+            <div class="timer-num" id="cd-mins">00</div>
+            <div class="timer-label">Minutes</div>
+        </div>
+
+        <div class="timer-colon">:</div>
+
+        <div class="timer-block">
+            <div class="timer-num" id="cd-secs">00</div>
+            <div class="timer-label">Seconds</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATS (added) ================= -->
+
+<section class="stats-section">
+
+    <div class="stats-heading">
+        <h3>A day built for builders</h3>
+        <p>Here's what's coming together for AWS Student Community Day Thane 2026.</p>
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div class="stat-number"><span>10+</span></div>
+            <div class="stat-label">Sessions</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+            <div class="stat-number"><span>10+</span></div>
+            <div class="stat-label">Speakers</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="stat-number"><span>400+</span></div>
+            <div class="stat-label">Attendees</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-trophy"></i></div>
+            <div class="stat-number"><span>1st</span></div>
+            <div class="stat-label">Ever in Thane</div>
+        </div>
+
+    </div>
+
+</section>
+</div>
 
 <!-- ================= ABOUT ================= -->
 <!-- <section id="about" style="padding:120px 10%; background:#101010;">
@@ -866,7 +1565,182 @@ document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
         }
     });
 });
+
+/* ================= COUNTDOWN LOGIC (added) ================= */
+/* Target: 3rd October 2026, 8:00 AM IST (+05:30) */
+const targetDate = new Date("2026-10-03T08:00:00+05:30").getTime();
+
+const elDays = document.getElementById('cd-days');
+const elHours = document.getElementById('cd-hours');
+const elMins = document.getElementById('cd-mins');
+const elSecs = document.getElementById('cd-secs');
+
+function pad(n){
+    return String(n).padStart(2, '0');
+}
+
+function updateCountdown(){
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if(diff <= 0){
+        elDays.textContent = "00";
+        elHours.textContent = "00";
+        elMins.textContent = "00";
+        elSecs.textContent = "00";
+        clearInterval(timerInterval);
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    elDays.textContent = pad(days);
+    elHours.textContent = pad(hours);
+    elMins.textContent = pad(mins);
+    elSecs.textContent = pad(secs);
+}
+
+updateCountdown();
+const timerInterval = setInterval(updateCountdown, 1000);
 </script>
+
+<!-- ================= FOOTER (added) ================= -->
+
+<footer>
+
+<div class="footer-container">
+
+<!-- LEFT -->
+
+<div class="footer-column left">
+
+<img src="Photo/logo.svg" class="footer-logo" alt="AWS Student Community Day">
+
+<div class="hashtags">
+
+<span>#AWSSCDTHANE2026</span>
+
+<span>#AWSSBGAPSIT</span>
+
+</div>
+
+<div class="social-icons">
+
+<a href="https://www.instagram.com/awsbg.apsit" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+
+<a href="https://www.meetup.com/aws-sbg-at-apshah-inst-of-tech" target="_blank" rel="noopener"><i class="fab fa-meetup"></i></a>
+
+<a href="https://www.linkedin.com/company/aws-student-builder-group-apsit" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+
+<a href="https://chat.whatsapp.com/J1WIbEsZOCfLQZFQPO3HJw" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+
+</div>
+
+</div>
+
+<!-- MIDDLE -->
+
+<div class="footer-column">
+
+<h3>Quick Links</h3>
+
+<div class="quick-links">
+
+<ul>
+
+<li><a href="landing.html">Home</a></li>
+
+<li><a href="#">About</a></li>
+
+<li><a href="#">Attend</a></li>
+
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="Attend/FAQ.html">FAQ</a></li>
+
+</ul>
+
+<ul>
+
+<li><a href="landing.html#schedule">Schedule</a></li>
+
+<li><a href="sponsor.html">Sponsors</a></li>
+
+<li><a href="speaker.html">Speakers</a></li>
+
+<li><a href="#">Health + Safety</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="footer-column">
+
+<h3>Contact Us</h3>
+
+<div class="contact-item">
+
+<i class="fas fa-phone"></i>
+
+<div>
+
+<h4>Phone</h4>
+
+<p>
+
+<a href="tel:+917900184769">+91 7900184769(Arya Hegiste)
+</a><br>
+
+<a href="tel:+919324345357">+91 93243 45357(Manthan Patil)
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="contact-item">
+
+<i class="fas fa-envelope"></i>
+
+<div>
+
+<h4>Email</h4>
+
+<p>
+
+<a href="mailto:awsccapsit@gmail.com">
+
+awsccapsit@gmail.com
+
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+© 2026 AWS Student Community Day Thane. All Rights Reserved.
+
+</div>
+
+</footer>
 
 </body>
 
