@@ -60,23 +60,13 @@ header{
 }
 
 .navbar{
-
-    width:92%;
-
-    max-width:1400px;
-
-    margin:auto;
-
+    width:min(95%,1400px);
+    margin:0 auto;
     height:90px;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
-    margin-left:70px;
-
+    padding:0 clamp(16px,2vw,24px);
 }
 
 /* ================= LOGO ================= */
@@ -99,7 +89,11 @@ header{
 
     list-style:none;
 
-    gap:42px;
+    gap:28px;
+
+    margin:0 auto;
+
+    flex-shrink:1;
 
 }
 
@@ -215,36 +209,29 @@ header{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     background:#FF9900;
     color:#fff;
     text-decoration:none;
-
     padding:12px 28px;
     border-radius:8px;
-
     font-weight:600;
-    white-space: nowrap;      /* Prevents "Register Now" from breaking */
-    min-width:170px;          /* Gives enough width */
-    margin-left:60px;
-
+    white-space: nowrap;
+    min-width:140px;
+    margin-left:0;
     transition:.3s;
 }
 
 .register-btn:hover{
-
     background:#E68700;
-
     transform:translateY(-2px);
-
 }
-
-/* ================= NAV ACTIONS / HAMBURGER (hidden on desktop, shown on mobile below) ================= */
 
 .nav-actions{
     display:flex;
     align-items:center;
     gap:16px;
+    flex-shrink:0;
+    margin-left:auto;
 }
 
 .menu-toggle{
@@ -458,8 +445,6 @@ header{
 
 }
 
-/* ================= TABLET ================= */
-
 @media(max-width:1100px){
 
 .navbar{
@@ -480,35 +465,15 @@ header{
 
 }
 
-.hero-content h1{
-
-    font-size:32px;
-
-}
-
-.hero-content h2{
-
-    font-size:28px;
-
-}
-
-.hero-content p{
-
-    width:100%;
-
-    font-size:18px;
-
-}
-
 }
 
 /* ================= MOBILE ================= */
 
-@media(max-width:768px){
+@media(max-width:1100px){
 
 header{
 
-    position:fixed; /* keep fixed so it doesn't push the hero down by its own stacked height */
+    position:fixed;
 
 }
 
@@ -516,11 +481,7 @@ header{
 
     height:76px;
 
-    padding:0;
-
-    margin-left:0;
-
-    width:95%;
+    padding:0 16px;
 
 }
 
@@ -551,6 +512,8 @@ header{
     align-items:flex-start;
 
     gap:0;
+
+    margin:0;
 
     background:#3E1E5C;
 
@@ -647,6 +610,8 @@ header{
     padding:10px 18px;
 
     font-size:14px;
+
+    min-width:unset;
 
 }
 
@@ -1548,7 +1513,7 @@ menuToggle.addEventListener('click', () => {
 
 document.querySelectorAll('.dropdown > a').forEach(link => {
     link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1100) {
             e.preventDefault();
             link.parentElement.classList.toggle('open');
         }
@@ -1557,7 +1522,7 @@ document.querySelectorAll('.dropdown > a').forEach(link => {
 
 document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
     link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1100) {
             navLinks.classList.remove('active');
             const icon = menuToggle.querySelector('i');
             icon.classList.add('fa-bars');
