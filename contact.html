@@ -39,7 +39,11 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 clamp(10px,2vw,30px);
+    padding:0 clamp(16px,2vw,24px);
+}
+
+.logo{
+    flex-shrink:0;
 }
 
 .logo img{
@@ -51,7 +55,9 @@ header{
     display:flex;
     align-items:center;
     list-style:none;
-    gap:42px;
+    gap:28px;
+    margin:0 auto;
+    flex-shrink:1;
 }
 
 .nav-links li{
@@ -126,8 +132,8 @@ header{
     border-radius:8px;
     font-weight:600;
     white-space:nowrap;
-    min-width:170px;
-    margin-left:60px;
+    min-width:140px;
+    margin-left:0;
     transition:.3s;
 }
 
@@ -140,6 +146,8 @@ header{
     display:flex;
     align-items:center;
     gap:16px;
+    flex-shrink:0;
+    margin-left:auto;
 }
 
 .menu-toggle{
@@ -183,7 +191,7 @@ align-items:start;
 }
 
 /* Info card */
-.contact-info-card{background:#fff;border-radius:20px;box-shadow:0 6px 30px rgba(94,42,131,.1);}
+.contact-info-card{background:#fff;border-radius:24px;box-shadow:0 8px 40px rgba(94,42,131,.12);}
 .contact-info-card h2{font-size:1.15rem;font-weight:700;color:#3E1E5C;margin-bottom:28px;}
 
 .c-item{display:flex;gap:16px;align-items:flex-start;margin-bottom:26px;}
@@ -199,10 +207,10 @@ align-items:start;
 .contact-social a:hover{background:#FF9900;color:#fff;transform:translateY(-3px);}
 
 /* Cards — fluid padding */
-.contact-info-card,.contact-form-card{padding:clamp(20px,4vw,38px);}
+.contact-info-card,.contact-form-card{padding:clamp(28px,4vw,50px) clamp(24px,4.5vw,54px);}
 
 /* Form card */
-.contact-form-card{background:#fff;border-radius:20px;box-shadow:0 6px 30px rgba(94,42,131,.1);}
+.contact-form-card{background:#fff;border-radius:24px;box-shadow:0 8px 40px rgba(94,42,131,.12);margin-bottom:70px;}
 .contact-form-card h2{font-size:1.15rem;font-weight:700;color:#3E1E5C;margin-bottom:28px;}
 
 .form-group{margin-bottom:18px;}
@@ -262,11 +270,24 @@ footer{background:linear-gradient(180deg,#4B286A 0%,#402052 45%,#331942 100%);pa
     .contact-layout{grid-template-columns:1fr;}
 }
 
-@media(max-width:768px){
-    .navbar{height:76px;padding:0;margin-left:0;width:95%;}
+@media(max-width:1100px){
+    .navbar{height:76px;padding:0 16px;}
     .logo img{width:130px;}
     .menu-toggle{display:block;}
-    .nav-links{position:fixed;top:76px;left:0;width:100%;flex-direction:column;align-items:flex-start;gap:0;background:#3E1E5C;max-height:0;overflow:hidden;transition:max-height .35s ease;}
+    .nav-links{
+        position:fixed;
+        top:76px;
+        left:0;
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        margin:0;
+        background:#3E1E5C;
+        max-height:0;
+        overflow:hidden;
+        transition:max-height .35s ease;
+    }
     .nav-links.active{max-height:80vh;overflow-y:auto;box-shadow:0 15px 30px rgba(0,0,0,.25);}
     .nav-links li{width:100%;}
     .nav-links li a{display:block;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.1);}
@@ -275,21 +296,7 @@ footer{background:linear-gradient(180deg,#4B286A 0%,#402052 45%,#331942 100%);pa
     .dropdown.open .dropdown-menu{display:block;}
     .dropdown-menu li a{color:#fff;padding:14px 40px;}
     .dropdown-menu li a:hover{background:rgba(255,255,255,.1);color:#FF9900;padding-left:46px;}
-    .register-btn{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background:#FF9900;
-    color:#fff;
-    text-decoration:none;
-    padding:12px 28px;
-    border-radius:8px;
-    font-weight:600;
-    white-space:nowrap;
-    min-width:170px;
-    margin-left:60px;
-    transition:.3s;
-}
+    .register-btn{margin-left:0;padding:10px 18px;font-size:14px;min-width:unset;}
     main.page-content{padding-top:76px;}
     .footer-container{grid-template-columns:1fr;text-align:center;gap:50px;}
     .left{align-items:center;}
@@ -533,7 +540,7 @@ menuToggle.addEventListener('click', () => {
 
 document.querySelectorAll('.dropdown > a').forEach(link => {
     link.addEventListener('click', e => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1100) {
             e.preventDefault();
             link.parentElement.classList.toggle('open');
         }
@@ -542,7 +549,7 @@ document.querySelectorAll('.dropdown > a').forEach(link => {
 
 document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
     link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1100) {
             navLinks.classList.remove('active');
             const icon = menuToggle.querySelector('i');
             icon.classList.add('fa-bars');
