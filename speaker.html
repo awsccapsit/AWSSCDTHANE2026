@@ -437,6 +437,41 @@ main.page-content{
     margin:36px 0 32px;
 }
 
+/* Guidelines box */
+.guidelines-box{
+    background:#faf9ff;
+    border:1.8px solid #ede8f7;
+    border-radius:14px;
+    padding:clamp(16px,3vw,24px) clamp(18px,3vw,28px);
+    margin-bottom:8px;
+}
+.guidelines-box p{
+    font-size:.9rem;
+    color:#4a4a6a;
+    line-height:1.7;
+    margin-bottom:14px;
+}
+.guidelines-list{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.guidelines-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:.88rem;
+    color:#2F1B4E;
+    line-height:1.6;
+}
+.guidelines-list li i{
+    color:#FF9900;
+    font-size:.85rem;
+    margin-top:3px;
+    flex-shrink:0;
+}
+
 /* Submit button */
 .submit-wrap{
     text-align:center;
@@ -1010,7 +1045,6 @@ Attend
                             <option value="" disabled selected>Select a level</option>
                             <option value="100">100 – Foundational</option>
                             <option value="200">200 – Intermediate</option>
-                            <option value="300">300 – Advanced</option>
                         </select>
                     </div>
                 </div>
@@ -1112,6 +1146,29 @@ Attend
                         <label for="contactNumber">Whatsapp Number <span class="req">*</span></label>
                         <input type="tel" id="contactNumber" name="contactNumber" placeholder="+91 XXXXX XXXXX" required>
                     </div>
+                </div>
+
+                <!-- GUIDELINES & DISCLAIMER -->
+                <div class="form-sep"></div>
+                <div class="form-section-title">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Important Speaker Guidelines &amp; Disclaimer
+                </div>
+                <div class="guidelines-box">
+                    <p>We are excited to have you share your knowledge with our student community. Please note the following important points:</p>
+                    <ul class="guidelines-list">
+                        <li><i class="fa-solid fa-circle-check"></i><span>It is mandatory to share your final presentation slides at least one week prior to the event (by <strong>26th September 2026</strong>).</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i><span>Use of <strong>AWS services is compulsory</strong> in all sessions to maintain the focus and relevance of the event.</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i><span>All sessions must be <strong>student-friendly</strong> — clear, engaging, and accessible to undergraduate and postgraduate engineering students with varying levels of cloud knowledge.</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i><span>As this is a student-led community event, we regret to inform that <strong>no travel or accommodation compensation</strong> will be provided to speakers.</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i><span>As a token of our gratitude, all selected speakers will receive <strong>exclusive speaker goodies, token of appreciation and a Certificate of Appreciation</strong>.</span></li>
+                    </ul>
+                </div>
+                <div class="form-group" style="margin-top:20px;">
+                    <label class="checkbox-item" style="background:#fff8f0;border-color:#FFD580;padding:14px 18px;border-radius:12px;width:100%;align-items:flex-start;gap:12px;">
+                        <input type="checkbox" id="agreeGuidelines" name="agreeGuidelines" required style="margin-top:3px;flex-shrink:0;">
+                        <span style="font-size:.9rem;color:#2F1B4E;line-height:1.6;">By submitting my proposal, I agree to the above guidelines and disclaimer.</span>
+                    </label>
                 </div>
 
                 <!-- SUBMIT -->
