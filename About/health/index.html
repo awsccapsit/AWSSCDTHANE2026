@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health + Safety – AWS Student Community Day Thane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#fff;overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh;}
+header{position:fixed;top:0;left:0;width:100%;z-index:999;background:linear-gradient(90deg,#3E1E5C 0%,#592A83 50%,#7A49A8 100%);backdrop-filter:blur(16px);transition:.35s;}
+.navbar{width:min(95%,1400px);margin:0 auto;height:90px;display:flex;justify-content:space-between;align-items:center;padding:0 clamp(16px,2vw,24px);}
+.logo img{width:180px;display:block;}
+.nav-links{display:flex;align-items:center;list-style:none;gap:28px;margin:0 auto;flex-shrink:1;}
+.nav-links li{position:relative;}
+.nav-links li a{color:#fff;text-decoration:none;font-size:17px;font-weight:500;transition:.3s;}
+.nav-links li a:hover{color:#FF9900;}
+.dropdown>a{display:flex;align-items:center;gap:8px;}
+.dropdown-menu{position:absolute;top:55px;left:0;width:260px;background:#fff;border-radius:14px;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(20px);transition:.35s;box-shadow:0 15px 45px rgba(0,0,0,.15);}
+.dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.dropdown-menu li{width:100%;}
+.dropdown-menu li a{display:block;padding:8px 22px;color:#2F3C5A;font-size:15px;transition:.3s;}
+.dropdown-menu li a:hover{background:#FFF4E6;color:#FF9900;padding-left:30px;}
+.register-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#FF9900;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 28px;
+    border-radius:8px;
+    font-weight:600;
+    white-space:nowrap;
+    min-width:140px;
+    margin-left:0;
+    transition:.3s;
+}
+.register-btn:hover{background:#E68700;transform:translateY(-2px);}
+.nav-actions{display:flex;align-items:center;gap:16px;flex-shrink:0;margin-left:auto;}
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;z-index:1001;padding:4px 8px;}
+main.page-content{flex:1;background:linear-gradient(160deg,#dfdaff 10%,#F6F2FB 60%,#dfdaff 100%);padding-top:90px;padding-bottom:70px;}
+.page-banner{background:linear-gradient(90deg,#3E1E5C 0%,#592A83 50%,#7A49A8 100%);border-radius:28px;margin:40px 240px 0;padding:8px 40px;text-align:center;}
+.page-banner h1{color:#fff;font-size:clamp(1.4rem,3.5vw,2.6rem);font-weight:800;letter-spacing:3px;text-transform:uppercase;line-height:1.15;}
+.hs-wrap{width:90%;max-width:1000px;margin:44px auto 0;display:flex;flex-direction:column;gap:28px;}
+.hs-card{background:#fff;border-radius:20px;box-shadow:0 6px 30px rgba(94,42,131,.1);padding:38px 44px;}
+.hs-card-title{display:flex;align-items:center;gap:12px;font-size:1.1rem;font-weight:700;color:#3E1E5C;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid #ede8f7;}
+.hs-card-title i{color:#FF9900;font-size:1.2rem;}
+.hs-card p{font-size:.97rem;color:#4a4a6a;line-height:1.85;margin-bottom:16px;}
+.hs-card p:last-child{margin-bottom:0;}
+.hs-card strong{color:#2F1B4E;}
+.hs-subtitle{font-size:.88rem;font-weight:700;color:#592A83;text-transform:uppercase;letter-spacing:.8px;margin:20px 0 12px;}
+.hs-list{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
+.hs-item{display:flex;align-items:flex-start;gap:12px;background:#faf9ff;border:1.8px solid #ede8f7;border-radius:12px;padding:12px 16px;}
+.hs-item i{color:#FF9900;font-size:.9rem;margin-top:3px;flex-shrink:0;}
+.hs-item span{font-size:.9rem;color:#2F1B4E;line-height:1.6;}
+.hs-note{background:#fff8f0;border:1.8px solid #ffe0b2;border-radius:12px;padding:14px 18px;display:flex;gap:12px;align-items:flex-start;margin-top:8px;}
+.hs-note i{color:#FF9900;flex-shrink:0;margin-top:3px;}
+.hs-note span{font-size:.9rem;color:#5a3a00;line-height:1.6;}
+.police-card{background:#faf9ff;border:1.8px solid #ede8f7;border-radius:14px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;}
+.police-card i{color:#FF9900;font-size:1.2rem;margin-top:3px;flex-shrink:0;}
+.police-card div strong{display:block;font-size:.95rem;font-weight:700;color:#2F1B4E;margin-bottom:4px;}
+.police-card div p{font-size:.88rem;color:#4a4a6a;line-height:1.6;margin:0;}
+.police-card div a{color:#592A83;font-weight:600;text-decoration:none;}
+.police-card div a:hover{color:#FF9900;}
+footer{background:linear-gradient(180deg,#4B286A 0%,#402052 45%,#331942 100%);padding:70px 0 0;}
+.footer-container{width:90%;max-width:1350px;margin:auto;display:grid;grid-template-columns:1.2fr 1.2fr 1fr;gap:80px;align-items:start;}
+.left{display:flex;flex-direction:column;justify-content:flex-start;}
+.footer-logo{width:300px;height:300px;display:block;margin-top:-100px;margin-bottom:-40px;}
+.hashtags{display:flex;flex-direction:column;gap:1px;margin-bottom:5px;}
+.hashtags span{color:#fff;font-size:30px;font-weight:600;letter-spacing:.5px;}
+.social-icons{display:flex;gap:14px;}
+.social-icons a{width:70px;height:70px;border-radius:50%;display:flex;justify-content:center;align-items:center;background:#44557A;color:#fff;text-decoration:none;font-size:20px;transition:.3s;}
+.social-icons a:hover{background:#FF9900;transform:translateY(-4px);}
+.footer-column h3{color:#fff;font-size:38px;margin-bottom:35px;position:relative;}
+.footer-column h3::after{content:"";position:absolute;left:0;bottom:-10px;width:70px;height:4px;background:#FF9900;}
+.quick-links{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.quick-links ul{list-style:none;}
+.quick-links ul:first-child{border-right:1px solid rgba(255,255,255,.15);padding-right:35px;}
+.quick-links ul:last-child{padding-left:15px;}
+.quick-links li{margin-bottom:18px;}
+.quick-links a{color:#fff;text-decoration:none;font-size:22px;transition:.3s;}
+.quick-links a:hover{color:#FF9900;padding-left:6px;}
+.contact-item{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px;}
+.contact-item i{color:#FF9900;font-size:24px;margin-top:4px;}
+.contact-item h4{color:#fff;font-size:22px;margin-bottom:8px;}
+.contact-item p{color:#fff;font-size:19px;line-height:1.7;}
+.contact-item a{color:#fff;text-decoration:none;}
+.contact-item a:hover{color:#FF9900;}
+.copyright{margin-top:45px;background:#24304A;text-align:center;color:#fff;padding:18px;font-size:15px;}
+@media(max-width:1100px){.page-banner{margin:28px 60px 0;}.hs-card{padding:28px 24px;}}
+@media(max-width:1100px){
+    .page-banner{margin:28px 16px 0;padding:34px 18px;border-radius:18px;}
+    .hs-wrap{width:95%;}
+    .navbar{height:76px;padding:0 16px;}
+    .logo img{width:130px;}
+    .menu-toggle{display:block;}
+    .nav-links{position:fixed;top:76px;left:0;width:100%;flex-direction:column;align-items:flex-start;gap:0;margin:0;background:#3E1E5C;max-height:0;overflow:hidden;transition:max-height .35s ease;}
+    .nav-links.active{max-height:80vh;overflow-y:auto;box-shadow:0 15px 30px rgba(0,0,0,.25);}
+    .nav-links li{width:100%;}
+    .nav-links li a{display:block;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.1);}
+    .dropdown>a{justify-content:space-between;}
+    .dropdown-menu{position:static;opacity:1;visibility:visible;transform:none;width:100%;display:none;box-shadow:none;border-radius:0;background:rgba(0,0,0,.15);}
+    .dropdown.open .dropdown-menu{display:block;}
+    .dropdown-menu li a{color:#fff;padding:10px 40px;}
+    .dropdown-menu li a:hover{background:rgba(255,255,255,.1);color:#FF9900;padding-left:46px;}
+    .register-btn{margin-left:0;padding:10px 18px;font-size:14px;min-width:unset;}
+    main.page-content{padding-top:76px;}
+    .footer-container{grid-template-columns:1fr;text-align:center;gap:50px;}
+    .left{align-items:center;}
+    .footer-column h3::after{left:50%;transform:translateX(-50%);}
+    .quick-links{grid-template-columns:1fr;}
+    .quick-links ul:first-child{border:none;padding-right:0;}
+    .quick-links ul:last-child{padding-left:0;}
+    .social-icons{justify-content:center;}
+    .contact-item{justify-content:center;text-align:left;}
+}
+</style>
+</head>
+<body>
+<header>
+<nav class="navbar">
+    <div class="logo"><img src="/Photo/logo.svg" alt="AWS Student Community Day"></div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+            <a href="#">About <i class="fa-solid fa-angle-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="/about/event/">Event</a></li>
+                <li><a href="/about/health/">Health + Safety</a></li>
+                <li><a href="/about/conduct/">Code of Conduct</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#">Attend <i class="fa-solid fa-angle-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="/attend/register/">Register</a></li>
+                
+                <li><a href="/attend/venue/">Venue + Travel</a></li>
+                <li><a href="/attend/faq/">FAQ</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Schedule</a></li>
+        <li><a href="/speaker/">Speakers</a></li>
+        <li><a href="/sponsor/">Sponsors</a></li>
+        <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+        <a href="https://konfhub.com/aws-student-community-day-thane-2026" target="_blank" rel="noopener" class="register-btn">Register Now</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+</nav>
+</header>
+
+<main class="page-content">
+    <div class="page-banner"><h1>Health + Safety</h1></div>
+    <div class="hs-wrap">
+
+        <div class="hs-card">
+            <div class="hs-card-title"><i class="fa-solid fa-shield-heart"></i> Onsite Health + Safety</div>
+            <p>Our community's well-being is extremely important to us, and creating a safe, worry-free event is our top priority. We will adjust our health and safety protocols as needed while updating this page with information about plans for our attendees onsite. We continue to look to local municipality guidelines to make the best and most informed decisions around onsite safety and requirements.</p>
+        </div>
+
+        <div class="hs-card">
+            <div class="hs-card-title"><i class="fa-solid fa-kit-medical"></i> Health Measures</div>
+            <div class="hs-subtitle">Onsite Personal Protection</div>
+            <p>We respectfully remind all attendees, speakers, sponsors, and staff to:</p>
+            <div class="hs-list">
+                <div class="hs-item"><i class="fa-solid fa-house-medical"></i><span>Stay home if you experience any cold or flu-like symptoms.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-hands-bubbles"></i><span>Wash your hands.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-circle-check"></i><span>Stay healthy! Engage in responsible health practices.</span></div>
+            </div>
+            <div class="hs-subtitle">Food Allergies</div>
+            <p>The AWS Student Builder Group at A.P. Shah Institute of Technology believes it's essential to prioritize the safety and well-being of all attendees, including those with food allergies.</p>
+            <div class="hs-list">
+                <div class="hs-item"><i class="fa-solid fa-leaf"></i><span>We aim to provide only <strong>vegetarian food</strong> to suit all needs.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-tag"></i><span>All food items will be clearly labelled at the event.</span></div>
+            </div>
+            <div class="hs-note"><i class="fa-solid fa-envelope"></i><span>If you have a food allergy we need to be aware of, please email us at <a href="mailto:awsccapsit@gmail.com" style="color:#592A83;font-weight:600;">awsccapsit@gmail.com</a>.</span></div>
+        </div>
+
+        <div class="hs-card">
+            <div class="hs-card-title"><i class="fa-solid fa-person-walking-arrow-right"></i> Safety Resources + Tips</div>
+            <p>Attendee safety is our top priority. Always exercise common sense and good judgment when traveling.</p>
+            <div class="hs-subtitle">General Safety</div>
+            <div class="hs-list">
+                <div class="hs-item"><i class="fa-solid fa-id-badge"></i><span>When walking around the city, remember to take off your conference badge.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-user-group"></i><span>Safety in numbers: Exploring the city is safe, but can be safer when done with a friend or colleague.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-road"></i><span>Walk with purpose and stick to well-lit areas and main streets.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-car"></i><span>If alone after dark, use a ride service such as Uber/Rapido. Save the address and phone number of where you're staying in your phone.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-eye"></i><span>Be aware of your surroundings and keep your eyes up and not on your phone.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-building"></i><span>If something doesn't feel right, walk into a business or hotel for help.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-wallet"></i><span>Carry your purse or wallet safely. Purses should be closed and held in front of your body. Wallets should be carried in a front pocket or interior jacket pocket.</span></div>
+            </div>
+            <div class="hs-subtitle">When Visiting Any Venue</div>
+            <div class="hs-list">
+                <div class="hs-item"><i class="fa-solid fa-map-pin"></i><span>Know where you are; the venue name, street address or cross street.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-door-open"></i><span>Take a moment to identify at least two exit routes from any building or event and emergency exit signs.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-bell"></i><span>If an alarm sounds, evacuate immediately. Follow directions from First Responders and venue staff.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-bag-shopping"></i><span>Do not carry any unnecessary valuables with you, or leave personal items unattended.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-glass-water"></i><span>Do not leave drinks unattended, or accept open drinks or food products from strangers.</span></div>
+            </div>
+            <div class="hs-subtitle">Emergency Evacuations</div>
+            <div class="hs-list">
+                <div class="hs-item"><i class="fa-solid fa-person-running"></i><span>In the event of an emergency evacuation, make your way quickly and calmly to an emergency exit. Be aware of any hazards around you and proceed to a safe area.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-circle-check"></i><span>Follow the advice of venue staff, security personnel and First Responders.</span></div>
+                <div class="hs-item"><i class="fa-solid fa-hand"></i><span>Do not put yourself in danger by stopping to collect belongings unless directed by First Responders.</span></div>
+            </div>
+        </div>
+
+        <div class="hs-card">
+            <div class="hs-card-title"><i class="fa-solid fa-shield-halved"></i> Safety Resources</div>
+            <div class="police-card">
+                <i class="fa-solid fa-building-shield"></i>
+                <div>
+                    <strong>Thane Police Station</strong>
+                    <p>Ghodbunder Rd, behind D Mart, opposite Parkwood, Kavesar, Thane, Maharashtra 400615</p>
+                    <p>Phone: <a href="tel:02225972040">022 2597 2040</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+<div class="footer-container">
+    <div class="footer-column left">
+        <img src="/Photo/logo.svg" class="footer-logo" alt="AWS Student Community Day">
+        <div class="hashtags"><span>#AWSSCDTHANE2026</span><span>#AWSSBGAPSIT</span></div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/awsbg.apsit" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.meetup.com/aws-sbg-at-apshah-inst-of-tech" target="_blank" rel="noopener"><i class="fab fa-meetup"></i></a>
+            <a href="https://www.linkedin.com/company/aws-student-builder-group-apsit" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://chat.whatsapp.com/J1WIbEsZOCfLQZFQPO3HJw" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+    <div class="footer-column">
+        <h3>Quick Links</h3>
+        <div class="quick-links">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/event/">About</a></li>
+                <li><a href="/attend/venue/">Attend</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/attend/faq/">FAQ</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Schedule</a></li>
+                <li><a href="/sponsor/">Sponsors</a></li>
+                <li><a href="/speaker/">Speakers</a></li>
+                <li><a href="/about/health/">Health + Safety</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-column">
+        <h3>Contact Us</h3>
+        <div class="contact-item"><i class="fas fa-phone"></i><div><h4>Phone</h4><p><a href="tel:+917900184769">+91 79001 84769 (Arya Hegiste)</a><br><a href="tel:+919324345357">+91 93243 45357 (Manthan Patil)</a></p></div></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p><a href="mailto:awsccapsit@gmail.com">awsccapsit@gmail.com</a></p></div></div>
+    </div>
+</div>
+<div class="copyright">© 2026 AWS Student Community Day Thane. All Rights Reserved.</div>
+</footer>
+<script>
+const menuToggle=document.getElementById('menuToggle'),navLinks=document.getElementById('navLinks');
+menuToggle.addEventListener('click',()=>{navLinks.classList.toggle('active');const i=menuToggle.querySelector('i');i.classList.toggle('fa-bars');i.classList.toggle('fa-xmark');});
+document.querySelectorAll('.dropdown > a').forEach(l=>l.addEventListener('click',e=>{if(window.innerWidth<=1100){e.preventDefault();l.parentElement.classList.toggle('open');}}));
+document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=1100){navLinks.classList.remove('active');const i=menuToggle.querySelector('i');i.classList.add('fa-bars');i.classList.remove('fa-xmark');}}));
+</script>
+</body>
+</html>
+

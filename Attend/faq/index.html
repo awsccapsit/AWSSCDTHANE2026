@@ -1,0 +1,1253 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FAQ | AWS Student Community Day Thane</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fff;
+    overflow-x:hidden;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background: linear-gradient(90deg, #3E1E5C 0%, #592A83 50%, #7A49A8 100%);
+    backdrop-filter:blur(16px);
+    transition:.35s;
+}
+
+.navbar{
+    width:min(95%,1400px);
+    margin:0 auto;
+    height:90px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 clamp(16px,2vw,24px);
+}
+
+.logo img{
+    width:180px;
+    display:block;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    gap:28px;
+    margin:0 auto;
+    flex-shrink:1;
+}
+
+.nav-links li{
+    position:relative;
+}
+
+.nav-links li a{
+    color:#fff;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links li a:hover{
+    color:#FF9900;
+}
+
+.dropdown>a{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.dropdown-menu{
+    position:absolute;
+    top:55px;
+    left:0;
+    width:290px;
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px);
+    transition:.35s;
+    box-shadow:0 15px 45px rgba(0,0,0,.15);
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.dropdown-menu li{
+    width:100%;
+}
+
+.dropdown-menu li a{
+    display:block;
+    padding:8px 22px;
+    color:#2F3C5A;
+    font-size:15px;
+    transition:.3s;
+}
+
+.dropdown-menu li a:hover{
+    background:#FFF4E6;
+    color:#FF9900;
+    padding-left:30px;
+}
+
+.register-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#FF9900;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 28px;
+    border-radius:8px;
+    font-weight:600;
+    white-space:nowrap;
+    min-width:140px;
+    margin-left:0;
+    transition:.3s;
+}
+
+.register-btn:hover{
+    background:#E68700;
+    transform:translateY(-2px);
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-shrink:0;
+    margin-left:auto;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:26px;
+    cursor:pointer;
+    z-index:1001;
+    padding:4px 8px;
+}
+
+/* ================= PAGE CONTENT AREA ================= */
+
+main.page-content{
+    flex:1;
+    min-height:60vh;
+    background: linear-gradient(160deg, #dfdaff 10%, #F6F2FB 60%, #dfdaff 100%);
+    padding-top:90px;
+}
+
+/* ---- Hero ---- */
+
+.faq-hero{
+    text-align:center;
+    padding:70px 6% 30px;
+}
+
+.faq-hero .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#fff;
+    color:#7A49A8;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:.5px;
+    padding:8px 20px;
+    border-radius:30px;
+    box-shadow:0 8px 24px rgba(89,42,131,.12);
+    margin-bottom:22px;
+}
+
+.faq-hero h1{
+    font-size:44px;
+    font-weight:800;
+    color:#3E1E5C;
+    margin-bottom:16px;
+}
+
+.faq-hero p{
+    max-width:640px;
+    margin:0 auto;
+    color:#5A4A70;
+    font-size:17px;
+    line-height:1.7;
+}
+
+/* ---- Search ---- */
+
+.faq-search-wrap{
+    width:90%;
+    max-width:700px;
+    margin:34px auto 10px;
+}
+
+.faq-search{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#fff;
+    border-radius:30px;
+    padding:14px 24px;
+    box-shadow:0 12px 34px rgba(62,30,92,.12);
+}
+
+.faq-search i{
+    color:#7A49A8;
+    font-size:18px;
+}
+
+.faq-search input{
+    border:none;
+    outline:none;
+    flex:1;
+    font-size:15.5px;
+    font-family:'Poppins',sans-serif;
+    color:#3E1E5C;
+    background:transparent;
+}
+
+.faq-search input::placeholder{
+    color:#A594BE;
+}
+
+.no-results{
+    display:none;
+    text-align:center;
+    color:#5A4A70;
+    font-size:15px;
+    margin:20px auto 0;
+    width:90%;
+    max-width:700px;
+}
+
+.no-results.show{
+    display:block;
+}
+
+/* ---- Category filter chips ---- */
+
+.faq-tabs{
+    width:90%;
+    max-width:1000px;
+    margin:26px auto 10px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+}
+
+.faq-tab{
+    border:none;
+    cursor:pointer;
+    background:#fff;
+    color:#592A83;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    padding:10px 22px;
+    border-radius:22px;
+    box-shadow:0 6px 18px rgba(62,30,92,.08);
+    transition:.3s;
+}
+
+.faq-tab.active,
+.faq-tab:hover{
+    background:linear-gradient(90deg,#3E1E5C,#7A49A8);
+    color:#fff;
+}
+
+/* ---- FAQ groups ---- */
+
+.faq-section{
+    width:90%;
+    max-width:900px;
+    margin:20px auto 30px;
+}
+
+.faq-group{
+    margin-bottom:40px;
+}
+
+.faq-group-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#3E1E5C;
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:18px;
+    padding-left:2px;
+}
+
+.faq-group-title i{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#7A49A8,#3E1E5C);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+}
+
+.faq-item{
+    background:#fff;
+    border-radius:16px;
+    margin-bottom:14px;
+    box-shadow:0 8px 26px rgba(62,30,92,.07);
+    overflow:hidden;
+    transition:.3s;
+}
+
+.faq-question{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:20px 24px;
+    cursor:pointer;
+    color:#3E1E5C;
+    font-weight:600;
+    font-size:16px;
+}
+
+.faq-question i{
+    color:#7A49A8;
+    font-size:15px;
+    transition:.3s;
+    flex-shrink:0;
+}
+
+.faq-item.open .faq-question i{
+    transform:rotate(180deg);
+    color:#FF9900;
+}
+
+.faq-item.open{
+    box-shadow:0 12px 34px rgba(62,30,92,.14);
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+}
+
+.faq-answer p{
+    padding:0 24px 22px;
+    color:#5A4A70;
+    font-size:15px;
+    line-height:1.75;
+}
+
+/* ---- Still have questions ---- */
+
+.faq-cta{
+    width:90%;
+    max-width:900px;
+    margin:10px auto 70px;
+    background:linear-gradient(90deg,#3E1E5C,#7A49A8);
+    border-radius:22px;
+    padding:36px 40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+    color:#fff;
+}
+
+.faq-cta h3{
+    font-size:22px;
+    margin-bottom:6px;
+}
+
+.faq-cta p{
+    color:#E4D9F2;
+    font-size:14.5px;
+}
+
+.faq-cta a{
+    background:#FF9900;
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14.5px;
+    padding:13px 28px;
+    border-radius:22px;
+    white-space:nowrap;
+    transition:.3s;
+}
+
+.faq-cta a:hover{
+    background:#E68700;
+    transform:translateY(-2px);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    background: linear-gradient(180deg, #4B286A 0%, #402052 45%, #331942 100%);
+    padding:70px 0 0;
+
+}
+
+.footer-container{
+
+    width:90%;
+    max-width:1350px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1.2fr 1fr;
+
+    gap:80px;
+
+    align-items:start;
+
+}
+
+.left{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+
+}
+
+.footer-logo{
+
+    width:300px;
+    height:300px;
+    display:block;
+    margin-top:-100px;
+    margin-bottom:-40px;
+
+}
+
+.hashtags{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:1px;
+
+    margin-bottom:5px;
+
+}
+
+.hashtags span{
+
+    color:#ffffff;
+
+    font-size:30px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+}
+
+.social-icons{
+
+    display:flex;
+
+    gap:14px;
+
+}
+
+.social-icons a{
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#44557A;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.social-icons a:hover{
+
+    background:#FF9900;
+
+    transform:translateY(-4px);
+
+}
+
+.footer-column h3{
+
+    color:#fff;
+
+    font-size:38px;
+
+    margin-bottom:35px;
+
+    position:relative;
+
+}
+
+.footer-column h3::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-10px;
+
+    width:70px;
+
+    height:4px;
+
+    background:#FF9900;
+
+}
+
+.quick-links{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:40px;
+
+}
+
+.quick-links ul{
+
+    list-style:none;
+
+}
+
+.quick-links ul:first-child{
+
+    border-right:1px solid rgba(255,255,255,.15);
+
+    padding-right:35px;
+
+}
+
+.quick-links ul:last-child{
+
+    padding-left:15px;
+
+}
+
+.quick-links li{
+
+    margin-bottom:18px;
+
+}
+
+.quick-links a{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:22px;
+
+    transition:.3s;
+
+}
+
+.quick-links a:hover{
+
+    color:#FF9900;
+
+    padding-left:6px;
+
+}
+
+.contact-item{
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:flex-start;
+
+    margin-bottom:28px;
+
+}
+
+.contact-item i{
+
+    color:#FF9900;
+
+    font-size:24px;
+
+    margin-top:4px;
+
+}
+
+.contact-item h4{
+
+    color:#ffffff;
+
+    font-size:22px;
+
+    margin-bottom:8px;
+
+}
+
+.contact-item p{
+
+    color:#ffffff;
+
+    font-size:19px;
+
+    line-height:1.7;
+
+}
+
+.contact-item a{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+}
+
+.contact-item a:hover{
+
+    color:#FF9900;
+
+}
+
+.copyright{
+
+    margin-top:45px;
+
+    background:#24304A;
+
+    text-align:center;
+
+    color:#ffffff;
+
+    padding:18px;
+
+    font-size:15px;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+.navbar{ height:76px; padding:0 16px; }
+.logo img{ width:130px; }
+.menu-toggle{ display:block; }
+.nav-links{
+    position:fixed;
+    top:76px;
+    left:0;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    margin:0;
+    background:#3E1E5C;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+}
+.nav-links.active{
+    max-height:80vh;
+    overflow-y:auto;
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+.nav-links li{ width:100%; }
+.nav-links li a{
+    display:block;
+    padding:16px 24px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+.dropdown>a{ justify-content:space-between; }
+.dropdown-menu{
+    position:static;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    width:100%;
+    display:none;
+    box-shadow:none;
+    border-radius:0;
+    background:rgba(0,0,0,.15);
+}
+.dropdown.open .dropdown-menu{ display:block; }
+.dropdown-menu li a{ color:#fff; padding:10px 40px; }
+.dropdown-menu li a:hover{
+    background:rgba(255,255,255,.1);
+    color:#FF9900;
+    padding-left:46px;
+}
+.register-btn{ margin-left:0; padding:10px 18px; font-size:14px; min-width:unset; }
+main.page-content{ padding-top:76px; }
+.footer-container{ grid-template-columns:1fr; text-align:center; gap:50px; }
+.left{ align-items:center; }
+.footer-column h3::after{ left:50%; transform:translateX(-50%); }
+.quick-links{ grid-template-columns:1fr; }
+.quick-links ul:first-child{ border:none; padding-right:0; }
+.quick-links ul:last-child{ padding-left:0; }
+.social-icons{ justify-content:center; }
+.contact-item{ justify-content:center; text-align:left; }
+}
+
+.faq-hero h1{
+    font-size:30px;
+}
+
+.faq-question{
+    padding:16px 18px;
+    font-size:15px;
+}
+
+.faq-answer p{
+    padding:0 18px 18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="/Photo/logo.svg" alt="AWS Student Community Day">
+
+</div>
+
+<ul class="nav-links" id="navLinks">
+
+<li><a href="/">Home</a></li>
+
+<li class="dropdown">
+<a href="#">About <i class="fa-solid fa-angle-down"></i></a>
+<ul class="dropdown-menu">
+<li><a href="/about/event/">Event</a></li>
+<li><a href="/about/health/">Health + Safety</a></li>
+<li><a href="/about/conduct/">Code of Conduct</a></li>
+</ul>
+</li>
+
+<li class="dropdown">
+<a href="#">Attend <i class="fa-solid fa-angle-down"></i></a>
+<ul class="dropdown-menu">
+<li><a href="/attend/register/">Register</a></li>
+<li><a href="/attend/venue/">Venue + Travel</a></li>
+<li><a href="/attend/faq/">FAQ</a></li>
+</ul>
+</li>
+
+<li><a href="/#schedule">Schedule</a></li>
+
+<li><a href="/speaker/">Speakers</a></li>
+
+<li><a href="/sponsor/">Sponsors</a></li>
+
+<li><a href="/contact/">Contact</a></li>
+
+</ul>
+
+<div class="nav-actions">
+
+<a href="https://konfhub.com/aws-student-community-day-thane-2026" target="_blank" rel="noopener" class="register-btn">Register Now</a>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+<i class="fa-solid fa-bars"></i>
+</button>
+
+</div>
+
+</nav>
+
+</header>
+
+<!-- ================= PAGE CONTENT ================= -->
+
+<main class="page-content">
+
+<!-- Hero -->
+<section class="faq-hero">
+<span class="eyebrow"><i class="fa-solid fa-circle-question"></i> Got Questions?</span>
+<h1>Frequently Asked Questions</h1>
+<p>Everything students usually ask about the event, registration, and getting there — all in one place.</p>
+</section>
+
+<!-- Search -->
+<div class="faq-search-wrap">
+<div class="faq-search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input type="text" id="faqSearch" placeholder="Search a question">
+</div>
+</div>
+
+<!-- Category chips -->
+<div class="faq-tabs" id="faqTabs">
+<button class="faq-tab active" data-filter="all">All</button>
+<button class="faq-tab" data-filter="general">General</button>
+<button class="faq-tab" data-filter="registration">Registration</button>
+<button class="faq-tab" data-filter="travel">Venue &amp; Travel</button>
+<button class="faq-tab" data-filter="event-day">On Event Day</button>
+</div>
+
+<p class="no-results" id="noResults">No questions matched your search. Try a different keyword, or reach out to us directly below.</p>
+
+<!-- FAQ groups -->
+<section class="faq-section" id="faqSection">
+
+<!-- General -->
+<div class="faq-group" data-group="general">
+<div class="faq-group-title"><i class="fa-solid fa-star"></i> General</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>What is AWS Student Community Day Thane?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>It's a student-focused event organized around AWS technologies, featuring talks, workshops, and networking with speakers and fellow students from across the community. It's part of the AWS Student Builder community initiatives.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Who can attend this event?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>The event is open to all students, whether you're from a technical background or just curious about tech. No prior AWS experience is required to attend.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Do I need to know AWS beforehand?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Not at all. Sessions are designed to be beginner-friendly, with content ranging from fundamentals to more advanced topics, so there's something useful whatever your current skill level.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Is the event free to attend?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>This is a paid event — a nominal registration fee applies to secure your spot. Seats are limited, so we recommend registering early to avoid missing out. Head to the Register page to complete your registration.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Will I get a certificate for attending?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Yes, participants who attend the full event will receive a certificate of participation. Details on how and when it will be issued will be shared on the event day.</p></div>
+</div>
+
+</div>
+
+<!-- Registration -->
+<div class="faq-group" data-group="registration">
+<div class="faq-group-title"><i class="fa-solid fa-clipboard-list"></i> Registration</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>How do I register for the event?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>You can register through the "Register Now" button at the top of this website, which takes you to our official KonfHub registration page. Fill in your details and you'll receive a confirmation once registered.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Is there a registration fee?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Yes, a nominal fee applies. Since spots are limited, completing your registration early is the best way to guarantee your place at the event.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>What do I need to carry for check-in?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Please carry a valid college/student ID and your registration confirmation (email or ticket) to speed up check-in at the venue.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Can I register on the spot at the venue?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>No, on-spot registrations are not available. All registrations must be completed online in advance. Walk-ins will not be permitted on the event day, so make sure you register and carry your confirmation before arriving.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>I registered but haven't received a confirmation. What should I do?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>First check your spam/promotions folder. If you still can't find it, reach out to us at awsccapsit@gmail.com with your registered name and email.</p></div>
+</div>
+
+</div>
+
+<!-- Venue & Travel -->
+<div class="faq-group" data-group="travel">
+<div class="faq-group-title"><i class="fa-solid fa-route"></i> Venue &amp; Travel</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Where exactly is the venue located?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>The event will be held at Kriyan Banquet Hall, Ghodbunder Road, opposite Hypercity Mall, Bhawani Nagar, Kasarvadavali, Thane West, Thane, Maharashtra. Full directions are available on our Travel page.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>How far is the venue from Thane Station?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>The venue is approximately 10–12 km from Thane Station, so please plan your travel time accordingly to reach before registrations close.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>What's the best way to travel from Thane Station?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>We recommend taking an auto or cab and asking for "Anand Nagar Naka" or "Kasarvadavali Naka" — from there it's only a 3–5 minute walk. Traveling by bus isn't recommended due to rush-hour timing and the long route.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Is parking available at the venue?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Yes parking is available near the venue. If you're driving down, we suggest arriving early to secure a spot comfortably before registrations begin.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Are there any spots I should avoid while navigating to the venue?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Yes — avoid getting off at G Crop Office, as crossing the road there can be risky if you're unfamiliar with the area. Ask your driver for Anand Nagar Naka or Kasarvadavali Naka instead.</p></div>
+</div>
+
+</div>
+
+<!-- On Event Day -->
+<div class="faq-group" data-group="event-day">
+<div class="faq-group-title"><i class="fa-solid fa-calendar-day"></i> On Event Day</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>What time should I arrive?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Registrations begin at 8:00 AM and the event starts at 9:00 AM. We recommend arriving by 8:00 AM to check in comfortably before the opening session.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Will food be provided?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Refreshments will be provided during the event. Any specific meal arrangements will be communicated closer to the date via email or on this website.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>What should I bring with me?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Bring your student/college ID, your registration confirmation, a laptop if you'd like to follow along with hands-on sessions, and a charger since seating with power access may be limited.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Is there a dress code?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>There's no strict dress code — smart casuals are perfectly fine. Just dress comfortably since you'll be seated through sessions for most of the day.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Will Wi-Fi be available at the venue?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Wi-Fi access will be made available for hands-on sessions. Details on how to connect will be shared at check-in.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question"><span>Who do I contact if I need help on the day of the event?</span><i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer"><p>You can reach the organizing team at +91 79001 84769 or +91 93243 45357, or email awsccapsit@gmail.com. Volunteers wearing event badges will also be around the venue to help.</p></div>
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+<div class="faq-cta">
+<div>
+<h3>Still have a question?</h3>
+<p>Reach out to our team directly and we'll get back to you as soon as we can.</p>
+</div>
+<a href="/contact/">Contact Us</a>
+</div>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-container">
+
+<!-- LEFT -->
+
+<div class="footer-column left">
+
+<img src="/Photo/logo.svg" class="footer-logo" alt="AWS Student Community Day">
+
+<div class="hashtags">
+
+<span>#AWSSCDTHANE2026</span>
+
+<span>#AWSSBGAPSIT</span>
+
+</div>
+
+<div class="social-icons">
+
+<a href="https://www.instagram.com/awsbg.apsit" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+
+<a href="https://www.meetup.com/aws-sbg-at-apshah-inst-of-tech" target="_blank" rel="noopener"><i class="fab fa-meetup"></i></a>
+
+<a href="https://www.linkedin.com/company/aws-student-builder-group-apsit" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+
+<a href="https://chat.whatsapp.com/J1WIbEsZOCfLQZFQPO3HJw" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+
+</div>
+
+</div>
+
+<!-- MIDDLE -->
+
+<div class="footer-column">
+
+<h3>Quick Links</h3>
+
+<div class="quick-links">
+
+<ul>
+
+<li><a href="/">Home</a></li>
+
+<li><a href="/about/event/">About</a></li>
+
+<li><a href="/attend/venue/">Attend</a></li>
+
+<li><a href="/contact/">Contact</a></li>
+
+<li><a href="/attend/faq/">FAQ</a></li>
+
+</ul>
+
+<ul>
+
+<li><a href="/#schedule">Schedule</a></li>
+
+<li><a href="/sponsor/">Sponsors</a></li>
+
+<li><a href="/speaker/">Speakers</a></li>
+
+<li><a href="/about/health/">Health + Safety</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="footer-column">
+
+<h3>Contact Us</h3>
+
+<div class="contact-item">
+
+<i class="fas fa-phone"></i>
+
+<div>
+
+<h4>Phone</h4>
+
+<p>
+
+<a href="tel:+917900184769">+91 79001 84769 (Arya Hegiste)</a><br>
+
+<a href="tel:+919324345357">+91 93243 45357 (Manthan Patil)</a>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="contact-item">
+
+<i class="fas fa-envelope"></i>
+
+<div>
+
+<h4>Email</h4>
+
+<p>
+
+<a href="mailto:contact@awsscdthane.com">
+
+contact@awsscdthane.com
+
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+© 2026 AWS Student Community Day Thane. All Rights Reserved.
+
+</div>
+
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-xmark');
+});
+
+document.querySelectorAll('.dropdown > a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1100) {
+            e.preventDefault();
+            link.parentElement.classList.toggle('open');
+        }
+    });
+});
+
+document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 1100) {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+        }
+    });
+});
+
+/* ---- Accordion ---- */
+document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        item.classList.toggle('open');
+        answer.style.maxHeight = isOpen ? null : answer.scrollHeight + 'px';
+    });
+});
+
+/* ---- Category filter ---- */
+const tabs = document.querySelectorAll('.faq-tab');
+const groups = document.querySelectorAll('.faq-group');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const filter = tab.dataset.filter;
+
+        groups.forEach(group => {
+            group.style.display = (filter === 'all' || group.dataset.group === filter) ? '' : 'none';
+        });
+
+        document.getElementById('faqSearch').value = '';
+        checkNoResults();
+    });
+});
+
+/* ---- Search ---- */
+const searchInput = document.getElementById('faqSearch');
+const noResults = document.getElementById('noResults');
+
+function checkNoResults(){
+    let anyVisible = false;
+
+    document.querySelectorAll('.faq-group').forEach(group => {
+        if (group.style.display !== 'none') {
+            const visibleItems = [...group.querySelectorAll('.faq-item')].some(i => i.style.display !== 'none');
+            if (visibleItems) anyVisible = true;
+        }
+    });
+
+    noResults.classList.toggle('show', !anyVisible);
+}
+
+searchInput.addEventListener('input', () => {
+    const term = searchInput.value.trim().toLowerCase();
+
+    tabs.forEach(t => t.classList.remove('active'));
+    document.querySelector('.faq-tab[data-filter="all"]').classList.add('active');
+    groups.forEach(group => group.style.display = '');
+
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const text = item.querySelector('.faq-question span').textContent.toLowerCase() +
+                     ' ' + item.querySelector('.faq-answer p').textContent.toLowerCase();
+        const match = term === '' || text.includes(term);
+        item.style.display = match ? '' : 'none';
+    });
+
+    document.querySelectorAll('.faq-group').forEach(group => {
+        const hasVisible = [...group.querySelectorAll('.faq-item')].some(i => i.style.display !== 'none');
+        group.style.display = hasVisible ? '' : 'none';
+    });
+
+    checkNoResults();
+});
+</script>
+
+</body>
+
+</html>
