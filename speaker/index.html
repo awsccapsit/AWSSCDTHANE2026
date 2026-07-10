@@ -1369,7 +1369,15 @@ if(speakerForm){
         const required = speakerForm.querySelectorAll('[required]');
         let valid = true;
         required.forEach(field => {
-            if(!field.value.trim()){
+            if(field.type === 'checkbox') {
+                if(!field.checked) {
+                    field.style.outline = '2px solid #e53e3e';
+                    field.style.borderRadius = '4px';
+                    valid = false;
+                } else {
+                    field.style.outline = '';
+                }
+            } else if(!field.value.trim()){
                 field.style.borderColor = '#e53e3e';
                 valid = false;
             } else {
