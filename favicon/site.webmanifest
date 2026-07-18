@@ -1,0 +1,19 @@
+{
+  "name": "AWS Student Community Day Thane 2026",
+  "short_name": "AWSSCDTHANE",
+  "icons": [
+    {
+      "src": "/favicon/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#3E1E5C",
+  "background_color": "#3E1E5C",
+  "display": "standalone"
+}
