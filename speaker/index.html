@@ -248,6 +248,92 @@ header{
     padding:4px 8px;
 }
 
+/* ================= SPEAKERS GRID ================= */
+
+.speakers-section{
+    width:min(92%,1200px);
+    margin:50px auto 80px;
+}
+
+.speakers-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:28px;
+}
+
+.speaker-card{
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 6px 30px rgba(94,42,131,.10);
+    overflow:hidden;
+    transition:.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+.speaker-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 16px 40px rgba(94,42,131,.18);
+}
+
+.speaker-photo{
+    width:100%;
+    aspect-ratio:1/1;
+    overflow:hidden;
+    background:linear-gradient(135deg,#3E1E5C,#7A49A8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.speaker-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.speaker-photo.blank i{
+    font-size:4rem;
+    color:rgba(255,255,255,.25);
+}
+
+.speaker-info{
+    padding:18px 16px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    flex:1;
+}
+
+.speaker-name{
+    font-size:1rem;
+    font-weight:700;
+    color:#2F1B4E;
+    line-height:1.3;
+}
+
+.speaker-role{
+    font-size:.82rem;
+    font-weight:600;
+    color:#592A83;
+}
+
+.speaker-company{
+    font-size:.8rem;
+    font-weight:500;
+    color:#888;
+}
+
+.speaker-tagline{
+    font-size:.75rem;
+    color:#5A4A70;
+    line-height:1.5;
+    margin-top:6px;
+    padding-top:8px;
+    border-top:1px solid #f0ebff;
+}
+
 /* ================= PAGE CONTENT ================= */
 
 main.page-content{
@@ -1043,225 +1129,158 @@ Attend
 
     <!-- BANNER -->
     <div class="page-banner">
-        <h1>Call for Speakers</h1>
+        <h1>Speakers</h1>
     </div>
 
-    <!-- SPEAKER SECTION -->
-    <section class="speaker-section">
+    <!-- SPEAKERS GRID -->
+    <section class="speakers-section">
 
-        <!-- INTRO -->
-        <div class="speaker-intro">
-            <h2>Call for Speakers – AWS Student Community Day Thane 2026</h2>
-            <p>Innovation is born at the intersection of creativity and real-world problems. Share your knowledge with the next generation of tech enthusiasts. Whether you've built exciting AWS projects, solved real-world challenges using AWS, or want to share career insights, industry trends, or hands-on workshops — we'd love to hear from you.</p>
-            <p>We are now accepting speaker proposals for <strong>AWS Student Community Day Thane 2026</strong>.</p>
-        </div>
+        <div class="speakers-grid">
 
-        <!-- EVENT DETAILS CARD -->
-        <div class="event-details-card">
-            <div class="event-detail-item">
-                <i class="fa-solid fa-calendar-days"></i>
-                <div>
-                    <strong>Date</strong>
-                    <span>3 October 2026 (Saturday)</span>
-                </div>
-            </div>
-            <div class="event-detail-item">
-                <i class="fa-solid fa-location-dot"></i>
-                <div>
-                    <strong>Venue</strong>
-                    <span>Kriyan Banquet, Thane</span>
-                </div>
-            </div>
-            <div class="event-detail-item">
-                <i class="fa-solid fa-clock"></i>
-                <div>
-                    <strong>Session Duration</strong>
-                    <span>25 Minutes</span>
-                </div>
-            </div>
-            <div class="event-detail-item">
-                <i class="fa-solid fa-calendar-xmark"></i>
-                <div>
-                    <strong>Form Closes</strong>
-                    <span>31st August 2026</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- PROPOSAL FORM -->
-        <div class="proposal-form-card">
-            <form id="speakerForm" novalidate>
-
-                <!-- SESSION DETAILS -->
-                <div class="form-section-title">
-                    <i class="fa-solid fa-file-lines"></i>
-                    Session Details
-                </div>
-
-                <div class="form-group">
-                    <label for="sessionTitle">Session Title <span class="req">*</span></label>
-                    <input type="text" id="sessionTitle" name="sessionTitle" placeholder="Enter a clear, concise session title" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="sessionDesc">Session Description <span class="req">*</span></label>
-                    <textarea id="sessionDesc" name="sessionDesc" placeholder="Describe what attendees will learn from your session..." required></textarea>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="sessionFormat">Session Format <span class="req">*</span></label>
-                        <select id="sessionFormat" name="sessionFormat" required>
-                            <option value="" disabled selected>Select a format</option>
-                            <option value="technical">Technical Talk</option>
-                            <option value="workshop">Hands-on Workshop / Demo</option>
-                            <option value="casestudy">Case Study / Real-World Implementation</option>
-                            <option value="career">Career Guidance &amp; Journey</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="talkLevel">Talk Level <span class="req">*</span></label>
-                        <select id="talkLevel" name="talkLevel" required>
-                            <option value="" disabled selected>Select a level</option>
-                            <option value="100">100 – Foundational</option>
-                            <option value="200">200 – Intermediate</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-sep"></div>
-
-                <!-- SPEAKER INFORMATION -->
-                <div class="form-section-title">
+            <!-- 1. Vishal Alhat -->
+            <div class="speaker-card">
+                <div class="speaker-photo blank">
                     <i class="fa-solid fa-user"></i>
-                    Speaker Information
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="speakerName">Speaker Name <span class="req">*</span></label>
-                        <input type="text" id="speakerName" name="speakerName" placeholder="Your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="speakerTagline">Speaker Tagline <span class="req">*</span></label>
-                        <input type="text" id="speakerTagline" name="speakerTagline" placeholder="e.g. Cloud Architect | AWS Enthusiast" required>
-                    </div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Vishal Alhat</h3>
+                    <div class="speaker-role">Developer Advocate</div>
+                    <div class="speaker-company">AWS</div>
+                    <div class="speaker-tagline">AWS | Former AWS Hero</div>
                 </div>
+            </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="organization">Organization / Institute <span class="req">*</span></label>
-                        <input type="text" id="organization" name="organization" placeholder="Your company or college name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="linkedinUrl">LinkedIn URL <span class="req">*</span></label>
-                        <input type="url" id="linkedinUrl" name="linkedinUrl" placeholder="https://linkedin.com/in/yourprofile" required>
-                    </div>
+            <!-- 2. Ameya Vaidya -->
+            <div class="speaker-card">
+                <div class="speaker-photo blank">
+                    <i class="fa-solid fa-user"></i>
                 </div>
-
-                <div class="form-group">
-                    <label for="speakerBio">Speaker Biography <span class="req">*</span> <span class="optional-tag">(max 150 words)</span></label>
-                    <textarea id="speakerBio" name="speakerBio" placeholder="Tell us about yourself, your expertise, and your AWS journey..." maxlength="1500" required></textarea>
-                    <div class="word-count" id="bioWordCount">0 / 150 words</div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Ameya Vaidya</h3>
+                    <div class="speaker-role">Founder</div>
+                    <div class="speaker-company">DreamWorld Tech</div>
+                    <div class="speaker-tagline">Founder DreamWorld Tech | AWS Community Builder | AWS Pune UG Leader</div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="speakerPhoto">Speaker Photo <span class="req">*</span></label>
-                    <input type="file" id="speakerPhoto" name="speakerPhoto" accept="image/*" required>
+            <!-- 3. Nikita Shinde -->
+            <div class="speaker-card">
+                <div class="speaker-photo blank">
+                    <i class="fa-solid fa-user"></i>
                 </div>
-
-                <div class="form-group">
-                    <label for="pastRecordings">Past Session Recordings / Links <span class="optional-tag">(optional)</span></label>
-                    <input type="text" id="pastRecordings" name="pastRecordings" placeholder="YouTube, Sessionize, or any other link">
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Nikita Shinde</h3>
+                    <div class="speaker-role">DevOps Engineer</div>
+                    <div class="speaker-company">&nbsp;</div>
+                    <div class="speaker-tagline">DevOps Engineer | Organizer at Merge &amp; Rise, Cloud Native Mumbai &amp; Grafana and Friends Mumbai</div>
                 </div>
+            </div>
 
-                <div class="form-sep"></div>
-
-                <!-- AWS PROGRAM MEMBERSHIP -->
-                <div class="form-section-title">
-                    <i class="fa-brands fa-aws"></i>
-                    Are you a member of any of the below programs?
-                    <span class="optional-tag" style="text-transform:none;letter-spacing:0;font-size:.8rem;">(select all that apply)</span>
+            <!-- 4. Tribhuvan Mishra -->
+            <div class="speaker-card">
+                <div class="speaker-photo blank">
+                    <i class="fa-solid fa-user"></i>
                 </div>
-
-                <div class="form-group">
-                    <div class="checkbox-grid">
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="awsMembership" value="ambassador">
-                            <span>AWS Ambassador</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="awsMembership" value="community-builder">
-                            <span>AWS Community Builder</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="awsMembership" value="heroes">
-                            <span>AWS Heroes</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="awsMembership" value="ug-leader">
-                            <span>AWS UG Leader</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="awsMembership" value="golden-jacket">
-                            <span>AWS Golden Jacket Holder</span>
-                        </label>
-                    </div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Tribhuvan Mishra</h3>
+                    <div class="speaker-role">Cloud Infra Specialist</div>
+                    <div class="speaker-company">Wipro Technologies</div>
+                    <div class="speaker-tagline">Cloud Infra Specialist | AWS Golden Jacket</div>
                 </div>
+            </div>
 
-                <div class="form-sep"></div>
+            <!-- 5. Sagar Utekar -->
+            <div class="speaker-card">
+                <div class="speaker-photo blank">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Sagar Utekar</h3>
+                    <div class="speaker-role">Site Reliability Engineer</div>
+                    <div class="speaker-company">CrowdStrike</div>
+                    <div class="speaker-tagline">Site Reliability Engineer | AWS Community Builder (Containers)</div>
+                </div>
+            </div>
 
-                <!-- CONTACT INFORMATION -->
-                <div class="form-section-title">
-                    <i class="fa-solid fa-address-book"></i>
-                    Contact Information
+            <!-- 6. Pratik Parikh -->
+            <div class="speaker-card">
+                <div class="speaker-photo blank">
+                    <i class="fa-solid fa-user"></i>
                 </div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Pratik Parikh</h3>
+                    <div class="speaker-role">Lead DevOps Engineer</div>
+                    <div class="speaker-company">Simbian</div>
+                    <div class="speaker-tagline">DevOps | Security | Cloud | Operations | International Speaker</div>
+                </div>
+            </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email <span class="req">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contactNumber">Whatsapp Number <span class="req">*</span></label>
-                        <input type="tel" id="contactNumber" name="contactNumber" placeholder="+91 XXXXX XXXXX" required>
-                    </div>
+            <!-- 7. Pushkar Thakur -->
+            <div class="speaker-card">
+                <div class="speaker-photo blank">
+                    <i class="fa-solid fa-user"></i>
                 </div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Pushkar Thakur</h3>
+                    <div class="speaker-role">SDE II</div>
+                    <div class="speaker-company">Procedure</div>
+                    <div class="speaker-tagline">SDE II | AWS Community Builder (Serverless)</div>
+                </div>
+            </div>
 
-                <!-- GUIDELINES & DISCLAIMER -->
-                <div class="form-sep"></div>
-                <div class="form-section-title">
-                    <i class="fa-solid fa-circle-info"></i>
-                    Important Speaker Guidelines &amp; Disclaimer
+            <!-- 8. Nikita Mourya -->
+            <div class="speaker-card">
+                <div class="speaker-photo blank">
+                    <i class="fa-solid fa-user"></i>
                 </div>
-                <div class="guidelines-box">
-                    <p>We are excited to have you share your knowledge with our student community. Please note the following important points:</p>
-                    <ul class="guidelines-list">
-                        <li><i class="fa-solid fa-circle-check"></i><span>It is mandatory to share your final presentation slides at least one week prior to the event (by <strong>26th September 2026</strong>).</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>Use of <strong>AWS services is compulsory</strong> in all sessions to maintain the focus and relevance of the event.</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>All sessions must be <strong>student-friendly</strong> — clear, engaging, and accessible to undergraduate and postgraduate engineering students with varying levels of cloud knowledge.</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>As this is a student-led community event, we regret to inform that <strong>no travel or accommodation compensation</strong> will be provided to speakers.</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>As a token of our gratitude, all selected speakers will receive <strong>exclusive speaker goodies, token of appreciation and a Certificate of Appreciation</strong>.</span></li>
-                    </ul>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Nikita Mourya</h3>
+                    <div class="speaker-role">Staff Cloud Platform Engineer</div>
+                    <div class="speaker-company">AppDirect</div>
+                    <div class="speaker-tagline">AWS Community Builder (AI) | Staff Cloud Platform Engineer</div>
                 </div>
-                <div class="form-group" style="margin-top:20px;">
-                    <label class="checkbox-item" style="background:#fff8f0;border-color:#FFD580;padding:14px 18px;border-radius:12px;width:100%;align-items:flex-start;gap:12px;">
-                        <input type="checkbox" id="agreeGuidelines" name="agreeGuidelines" required style="margin-top:3px;flex-shrink:0;">
-                        <span style="font-size:.9rem;color:#2F1B4E;line-height:1.6;">By submitting my proposal, I agree to the above guidelines and disclaimer.</span>
-                    </label>
-                </div>
+            </div>
 
-                <!-- SUBMIT -->
-                <div class="submit-wrap">
-                    <button type="submit" class="submit-btn">
-                        <i class="fa-solid fa-paper-plane" style="margin-right:10px;"></i>
-                        Submit Proposal
-                    </button>
+            <!-- 9. Abhishek Wagh -->
+            <div class="speaker-card">
+                <div class="speaker-photo blank">
+                    <i class="fa-solid fa-user"></i>
                 </div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Abhishek Wagh</h3>
+                    <div class="speaker-role">Associate Architect – Platform</div>
+                    <div class="speaker-company">Quantiphi</div>
+                    <div class="speaker-tagline">Associate Architect – Platform | AWS Community Builder (Containers)</div>
+                </div>
+            </div>
 
-            </form>
+            <!-- 10. Karan Vichare -->
+            <div class="speaker-card">
+                <div class="speaker-photo blank">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Karan Vichare</h3>
+                    <div class="speaker-role">Cloud Architect</div>
+                    <div class="speaker-company">Ganit Business Solutions</div>
+                    <div class="speaker-tagline">Cloud Architect | AWS Ambassador | AWS Golden Jacket | AWS Community Builder (Data)</div>
+                </div>
+            </div>
+
+            <!-- 11. Bhoomi Raut -->
+            <div class="speaker-card">
+                <div class="speaker-photo blank">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Bhoomi Raut</h3>
+                    <div class="speaker-role">AWS Community Builder</div>
+                    <div class="speaker-company">Persistent Systems</div>
+                    <div class="speaker-tagline">AWS Community Builder (AI) | Former AWS Cloud Captain '24</div>
+                </div>
+            </div>
+
         </div>
-
     </section>
 
 </main>
