@@ -1305,6 +1305,95 @@ footer{
 
 }
 
+/* ================= WHO'S ATTENDING ================= */
+
+.attending-section{
+    padding:90px 6% 80px;
+    background: linear-gradient(160deg, #dfdaff 10%, #F6F2FB 60%, #dfdaff 100%);
+}
+
+.attending-heading{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 60px;
+}
+
+.attending-heading h2{
+    font-size:clamp(28px,4vw,44px);
+    font-weight:800;
+    color:#2F3C5A;
+    margin-bottom:12px;
+}
+
+.attending-heading p{
+    font-size:16px;
+    color:#5A5670;
+}
+
+.attending-group{
+    max-width:1100px;
+    margin:0 auto 50px;
+}
+
+.attending-group:last-child{
+    margin-bottom:0;
+}
+
+.attending-group-label{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:#592A83;
+    background:rgba(89,42,131,.08);
+    border:1px solid rgba(89,42,131,.18);
+    padding:7px 20px;
+    border-radius:30px;
+    margin-bottom:24px;
+}
+
+.attending-group-label i{
+    color:#FF9900;
+}
+
+.attending-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.attending-tag{
+    background:#fff;
+    border:1.5px solid rgba(89,42,131,.15);
+    border-radius:50px;
+    padding:9px 20px;
+    font-size:14px;
+    font-weight:500;
+    color:#2F1B4E;
+    transition:.25s;
+    box-shadow:0 3px 12px rgba(63,30,92,.07);
+}
+
+.attending-tag:hover{
+    border-color:#592A83;
+    background:#f0ebff;
+    transform:translateY(-2px);
+    box-shadow:0 6px 18px rgba(89,42,131,.13);
+}
+
+@media(max-width:768px){
+    .attending-section{
+        padding:60px 5% 60px;
+    }
+    .attending-tag{
+        font-size:13px;
+        padding:8px 16px;
+    }
+}
+
 /* ---- Footer responsive (added) ---- */
 
 @media(max-width:991px){
@@ -1613,6 +1702,90 @@ Attend
 <!-- <section id="schedule" style="padding:120px 10%;background:rgb(0, 0, 0);">
     <h2 style="font-size:42px;color:#2F3C5A;text-align:center;">Schedule</h2>
 </section> -->
+
+<!-- ================= WHO'S ATTENDING ================= -->
+
+<section class="attending-section">
+
+    <div class="attending-heading">
+        <h2>See Who's Attending</h2>
+        <p>Students and professionals from across India are already registered for AWS Student Community Day Thane 2026.</p>
+    </div>
+
+    <!-- Institutions -->
+    <div class="attending-group">
+        <div class="attending-group-label">
+            <i class="fa-solid fa-building-columns"></i>
+            Institutions
+        </div>
+        <div class="attending-tags">
+            <span class="attending-tag">IIT Madras</span>
+            <span class="attending-tag">IIT Patna</span>
+            <span class="attending-tag">Fr. Conceicao Rodrigues Institute of Technology</span>
+            <span class="attending-tag">Sandip University</span>
+            <span class="attending-tag">ITM Skills University</span>
+            <span class="attending-tag">A. C. Patil College of Engineering</span>
+            <span class="attending-tag">Ajeenkya DY Patil University</span>
+            <span class="attending-tag">K. J. Somaiya College of Engineering</span>
+            <span class="attending-tag">Amity University, Mumbai</span>
+            <span class="attending-tag">Lokmanya Tilak College of Engineering</span>
+            <span class="attending-tag">Vivekanand Institute of Technology</span>
+            <span class="attending-tag">Thadomal Shahani Engineering College</span>
+            <span class="attending-tag">Annasaheb Vartak College</span>
+            <span class="attending-tag">Valia Junior College</span>
+            <span class="attending-tag">Thakur Shree DPS College of Engineering and Management</span>
+            <span class="attending-tag">Thakur College of Engineering and Technology</span>
+            <span class="attending-tag">Thakur College of Science and Commerce</span>
+            <span class="attending-tag">Vidyavardhini College of Engineering and Technology</span>
+            <span class="attending-tag">Terna Engineering College</span>
+            <span class="attending-tag">Pillai University, New Panvel</span>
+            <span class="attending-tag">Shah &amp; Anchor Kutchchi Engineering College</span>
+            <span class="attending-tag">Dwarkadas J. Sanghvi College of Engineering</span>
+            <span class="attending-tag">SIES Graduate School of Technology</span>
+            <span class="attending-tag">New Horizon Institute of Technology</span>
+            <span class="attending-tag">Nagindas Khandwala College</span>
+            <span class="attending-tag">Yenepoya University</span>
+            <span class="attending-tag">VPPCOE (MU)</span>
+            <span class="attending-tag">Mumbai University</span>
+            <span class="attending-tag">Datta Meghe College of Engineering</span>
+            <span class="attending-tag">Vasantdada Patil Pratishthan College of Engineering</span>
+            <span class="attending-tag">VIT Wadala</span>
+            <span class="attending-tag">Vidyalankar Polytechnic</span>
+            <span class="attending-tag">Model College Dombivli</span>
+            <span class="attending-tag">Vidhyadeep University</span>
+            <span class="attending-tag">Savitribai Phule Pune University</span>
+            <span class="attending-tag">Indira University</span>
+            <span class="attending-tag">DY Patil University</span>
+            <span class="attending-tag">Theem College of Engineering</span>
+            <span class="attending-tag">VJTI</span>
+            <span class="attending-tag">Watumull Institute of Engineering and Technology</span>
+            <span class="attending-tag">Kishinchand Chellaram College</span>
+        </div>
+    </div>
+
+    <!-- Organisations -->
+    <div class="attending-group">
+        <div class="attending-group-label">
+            <i class="fa-solid fa-briefcase"></i>
+            Organisations
+        </div>
+        <div class="attending-tags">
+            <span class="attending-tag">Nbunify Pvt. Ltd.</span>
+            <span class="attending-tag">Sherlocks AI</span>
+            <span class="attending-tag">Orange Business India</span>
+            <span class="attending-tag">Serverless Creed</span>
+            <span class="attending-tag">Avyka Info Pvt Ltd</span>
+            <span class="attending-tag">Quiet Gesture</span>
+            <span class="attending-tag">Teslearn</span>
+            <span class="attending-tag">IGIT Sarang, Odisha</span>
+            <span class="attending-tag">Ecomobility</span>
+            <span class="attending-tag">Redchillis</span>
+            <span class="attending-tag">UNIX-PLUS Infotech Private Limited</span>
+            <span class="attending-tag">GOQii Technologies Pvt Ltd</span>
+        </div>
+    </div>
+
+</section>
 
 <!-- ================= SPONSORS ================= -->
 <!-- <section id="sponsors" style="padding:120px 10%;background:#F6F8FC;">
